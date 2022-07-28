@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import {Provider} from 'react-redux';
 import Index from './page/index/index.jsx';
 import configureStore from "./reducers/configureStore";
@@ -9,10 +9,11 @@ import moment from 'moment'
 import 'moment/locale/zh-cn'
 import 'antd/dist/antd.css'
 import {ConfigProvider} from 'antd'
+import './app.pcss'
 
 moment.locale('zh-cn')
 
-ReactDOM.render([
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider key="store" store={configureStore}>
     <HashRouter>
       <ConfigProvider locale={zhCN}>
@@ -20,4 +21,4 @@ ReactDOM.render([
       </ConfigProvider>
     </HashRouter>
   </Provider>
-], document.getElementById('root'));
+)
