@@ -22,7 +22,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Src: path.resolve(__dirname, '../../src/')
+      src: path.resolve(__dirname, '../../src/')
     },
     extensions: ['.js', '.jsx', '.json']
   },
