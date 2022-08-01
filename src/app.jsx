@@ -10,6 +10,7 @@ import 'moment/locale/zh-cn'
 import 'antd/dist/antd.css'
 import {ConfigProvider} from 'antd'
 import './app.pcss'
+import 'src/common/assets/unit-style.pcss'
 
 moment.locale('zh-cn')
 

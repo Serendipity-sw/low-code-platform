@@ -1,0 +1,20 @@
+.init {
+    height: var(--headerHeight);
+    padding: 0  12px;
+    --rollbackOperateWidth: 120px;
+
+    .rollbackOperate {
+        display: flex;
+        align-items: center;
+        size: var(--rollbackOperateWidth) 100%;
+
+        .icon {
+            font-size: 25px;
+            cursor: pointer;
+
+            &.going {
+             transform: rotateY(180deg);
+            }
+        }
+    }
+}
