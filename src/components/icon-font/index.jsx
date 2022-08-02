@@ -5,7 +5,7 @@ require('./svgIcon/iconfont.js')
 
 export default props => {
   return (
-    <svg className={`${style.iconFont} ${props.className??''}`} aria-hidden="true">
+    <svg className={`${style.iconFont} ${props.className??''}`} aria-hidden="true" onClick={props.onClick}>
       <use xlinkHref={props.name}></use>
     </svg>
   )

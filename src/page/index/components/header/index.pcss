@@ -1,6 +1,8 @@
 .init {
     height: var(--headerHeight);
-    padding: 0  12px;
+    padding: 0 12px;
+    @util center;
+    justify-content: space-between;
     --rollbackOperateWidth: 120px;
 
     .rollbackOperate {
@@ -13,8 +15,34 @@
             cursor: pointer;
 
             &.going {
-             transform: rotateY(180deg);
+                transform: rotateY(180deg);
             }
         }
     }
+
+    .title {
+        @util center;
+
+        .icon {
+            cursor: pointer;
+            margin-left: 8px;
+        }
+    }
+
+    .input {
+        width: 120px;
+    }
+
+    .addBtn {
+        cursor: pointer;
+        size: 16px;
+    }
+
+    .placeholder {
+
+    }
+}
+
+.none {
+    display: none !important;
 }
