@@ -13,15 +13,16 @@ export default props => {
   const dispatch = useDispatch()
 
   useEffect( _ => {
-    setTitle( lowCodeData.title )
+    lowCodeData.title !== title && setTitle( lowCodeData.title )
   }, [ lowCodeData.title ] )
 
   const handleToggleEdit = _ => toggleEditVisible( !editVisible )
 
   const handleSaveTitle = _ => {
     handleToggleEdit()
-    if ( lowCodeData.title !== title ) {
-      dispatch( EditTitle( title.trim() ) )
+    const updateTitle = title.trim()
+    if ( lowCodeData.title !== updateTitle ) {
+      dispatch( EditTitle( updateTitle ) )
     }
   }
 
