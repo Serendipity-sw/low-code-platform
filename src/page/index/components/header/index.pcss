@@ -39,7 +39,16 @@
     }
 
     .placeholder {
+        display: flex;
 
+        .icon {
+            size: 25px;
+            cursor: pointer;
+
+            + .icon {
+                margin-left: 12px;
+            }
+        }
     }
 }
 

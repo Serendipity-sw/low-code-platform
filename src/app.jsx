@@ -12,6 +12,7 @@ import { ConfigProvider } from 'antd'
 import './app.pcss'
 import 'src/common/assets/unit-style.pcss'
 import 'src/common/assets/common.pcss'
+import 'animate.css'
 
 moment.locale( 'zh-cn' )
 
