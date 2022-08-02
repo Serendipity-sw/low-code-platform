@@ -14,6 +14,9 @@ export default _ => {
   return (
     <div className={ style.init }>
       <Tabs/>
+      <div className={style.toolbar}>
+
+      </div>
     </div>
   )
 }
