@@ -12,6 +12,7 @@ import ShadowFont from './components/shadow-font'
 import FontColor from './components/font-color'
 import BackgroundColor from './components/background-color'
 import AlignItems from './components/align-items'
+import Lock from './components/lock'
 
 export default props => {
   return (
@@ -28,6 +29,7 @@ export default props => {
       <FontColor/>
       <BackgroundColor/>
       <AlignItems/>
+      <Lock/>
     </div>
   )
 }
