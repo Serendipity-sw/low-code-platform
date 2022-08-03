@@ -10,3 +10,4 @@ dist/*
 *.lock
 .cache
 *.log
+*.zip
