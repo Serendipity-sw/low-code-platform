@@ -1,4 +1,32 @@
 .init {
     size: 100%;
     @util center;
+
+    .column {
+        @util center;
+        cursor: pointer;
+        padding: 5px 9px;
+        border-radius: 5px;
+
+        .icon {
+            size: var(--toolbarIconSize);
+            margin-right: 4px;
+        }
+
+        .dropDownIcon {
+            margin-left: 3px;
+        }
+
+        @mixin selectedHover {
+            background: #d9d9d9;
+        }
+
+        &:hover {
+            @include selectedHover;
+        }
+
+        &.selected {
+            @include selectedHover;
+        }
+    }
 }

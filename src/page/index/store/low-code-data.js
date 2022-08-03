@@ -2,6 +2,7 @@ import { cloneDeep } from 'lodash'
 
 const lowCodeDataInit = {
   title: '标题编辑',
+  insertControlsSelected: '',
   pageContentData: []
 }
 
@@ -11,29 +12,35 @@ const lowCodeDataAction = {
   editPageItemByIndex: Symbol( 'editPageItemByIndex' ),
   editPageItemById: Symbol( 'editPageItemById' ),
   delPageItemByIndex: Symbol( 'delPageItemByIndex' ),
-  delPageItemById: Symbol( 'delPageItemById' )
+  delPageItemById: Symbol( 'delPageItemById' ),
+  selectedInsertControls: Symbol( 'selectedInsertControls' ),
+  clearSelectedInsertControls: Symbol( 'clearSelectedInsertControls' )
 }
 
 const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
+  let pageContentData = cloneDeep( state.pageContentData )
   switch ( action.type ) {
     case lowCodeDataAction.editTitle:
       return { ...state, title: action.title }
     case lowCodeDataAction.addPageItem:
-      state.pageContentData.push( action.payInfo )
-      return state
+      pageContentData.push( action.payInfo )
+      return { ...state, pageContentData }
     case lowCodeDataAction.editPageItemByIndex:
-      state.pageContentData[action.index] = { ...state.pageContentData[action.index], ...action.payInfo }
-      return state
+      pageContentData[action.index] = { ...pageContentData[action.index], ...action.payInfo }
+      return { ...state, pageContentData }
     case lowCodeDataAction.editPageItemById:
-      const index = state.pageContentData.findIndex( item => item.id === action.payInfo.id )
-      state.pageContentData[index] = { ...state.pageContentData[index], ...action.payInfo }
-      return state
+      const index = pageContentData.findIndex( item => item.id === action.payInfo.id )
+      pageContentData[index] = { ...pageContentData[index], ...action.payInfo }
+      return { ...state, pageContentData }
     case lowCodeDataAction.delPageItemByIndex:
-      state.pageContentData.splice( action.index, 1 )
-      return state
-    case lowCodeDataAction.delPageItemByIndex:
-      state.pageContentData = state.pageContentData.filter( item => item.id !== action.id )
-      return state
+      pageContentData.splice( action.index, 1 )
+      return { ...state, pageContentData }
+    case lowCodeDataAction.delPageItemById:
+      return { ...state, pageContentData: pageContentData.filter( item => item.id !== action.id ) }
+    case lowCodeDataAction.selectedInsertControls:
+      return { ...state, insertControlsSelected: action.selected }
+    case lowCodeDataAction.clearSelectedInsertControls:
+      return { ...state, insertControlsSelected: '' }
     default:
       return state
   }
@@ -56,3 +63,7 @@ export const EditPageItemById = payInfo => ( { type: lowCodeDataAction.editPageI
 export const DelPageItemByIndex = index => ( { type: lowCodeDataAction.delPageItemByIndex, index } )
 
 export const DelPageItemById = id => ( { type: lowCodeDataAction.delPageItemByIndex, id } )
+
+export const SelectedInsertControls = selected => ( { type: lowCodeDataAction.selectedInsertControls, selected } )
+
+export const ClearSelectedInsertControls = _ => ( { type: lowCodeDataAction.clearSelectedInsertControls } )
