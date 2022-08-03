@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './index.pcss'
 import { Drawer, Segmented } from 'antd'
+import Style from './components/style'
 
 export default _ => {
   return (
@@ -13,7 +14,7 @@ export default _ => {
       getContainer={ false }
       className={ style.init }
     >
-      <div className={style.segmented}>
+      <div className={ style.segmented }>
         <Segmented options={ [
           {
             label: '样式',
@@ -29,6 +30,7 @@ export default _ => {
           }
         ] }/>
       </div>
+      <Style/>
     </Drawer>
   )
 }
