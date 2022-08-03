@@ -13,3 +13,54 @@
 :global .ant-segmented-item-selected {
     @include borderRadius;
 }
+
+:global .ant-drawer-body {
+    padding: 18px !important;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    size: 0;
+    background-color: transparent;
+}
+
+/*定义滚动条轨道
+ 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+/*定义滑块
+ 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+*:hover {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 16px;
+        background-color: transparent;
+    }
+
+    /*定义滚动条轨道
+     内阴影+圆角*/
+
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    /*定义滑块
+     内阴影+圆角*/
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}

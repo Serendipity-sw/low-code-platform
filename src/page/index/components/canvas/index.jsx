@@ -9,8 +9,6 @@ export default _ => {
   const [ visible, setVisible ] = useState( false )
 
   useEffect( _ => {
-    debugger
-    console.log(domRef)
     setVisible( !visible )
   }, [] )
 
