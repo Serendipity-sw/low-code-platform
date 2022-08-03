@@ -17,11 +17,13 @@ import 'animate.css'
 moment.locale( 'zh-cn' )
 
 ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
-  <Provider key="store" store={ configureStore }>
-    <HashRouter>
-      <ConfigProvider locale={ zhCN }>
-        <Index/>
-      </ConfigProvider>
-    </HashRouter>
-  </Provider>
+  <React.StrictMode>
+    <Provider key="store" store={ configureStore }>
+      <HashRouter>
+        <ConfigProvider locale={ zhCN }>
+          <Index/>
+        </ConfigProvider>
+      </HashRouter>
+    </Provider>
+  </React.StrictMode>
 )

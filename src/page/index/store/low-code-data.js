@@ -50,3 +50,9 @@ export const EditPageItemByIndex = ( index, payInfo ) => ( {
   index,
   payInfo
 } )
+
+export const EditPageItemById = payInfo => ( { type: lowCodeDataAction.editPageItemById, payInfo } )
+
+export const DelPageItemByIndex = index => ( { type: lowCodeDataAction.delPageItemByIndex, index } )
+
+export const DelPageItemById = id => ( { type: lowCodeDataAction.delPageItemByIndex, id } )

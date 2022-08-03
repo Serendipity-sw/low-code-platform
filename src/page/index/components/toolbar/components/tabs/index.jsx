@@ -25,7 +25,7 @@ export default _ => {
           label: '插入',
           value: 2
         }
-      ] } onChange={ value => handleSelected( value ) }/>
+      ] } value={ selected } onChange={ value => handleSelected( value ) }/>
     </div>
   )
 }
