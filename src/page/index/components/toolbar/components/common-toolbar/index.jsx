@@ -5,6 +5,13 @@ import Hide from './components/hide'
 import Combination from './components/combination'
 import Top from './components/top'
 import ToIt from './components/to-it'
+import GlideLine from './components/glide-line'
+import BoldFont from './components/bold-font'
+import DelLine from './components/del-line'
+import ShadowFont from './components/shadow-font'
+import FontColor from './components/font-color'
+import BackgroundColor from './components/background-color'
+import AlignItems from './components/align-items'
 
 export default props => {
   return (
@@ -14,6 +21,13 @@ export default props => {
       <Combination/>
       <Top/>
       <ToIt/>
+      <GlideLine/>
+      <BoldFont/>
+      <DelLine/>
+      <ShadowFont/>
+      <FontColor/>
+      <BackgroundColor/>
+      <AlignItems/>
     </div>
   )
 }

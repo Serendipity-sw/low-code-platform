@@ -1,3 +1,15 @@
-:global .ant-input {
+@mixin borderRadius {
     border-radius: 6px !important;
+}
+
+:global .ant-input {
+    @include borderRadius;
+}
+
+:global .ant-segmented {
+    @include borderRadius;
+}
+
+:global .ant-segmented-item-selected {
+    @include borderRadius;
 }

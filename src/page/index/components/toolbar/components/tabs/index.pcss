@@ -2,30 +2,4 @@
     height: var(--tollbarTabsHeight);
     @util center;
     padding: 6px 12px;
-
-    .tab {
-        size: 44px 100%;
-        @util center;
-        font-size: 13px;
-        border-radius: 4px;
-        cursor: pointer;
-        user-select: none;
-
-        @mixin mouseHover {
-            background: rgba(73, 73, 73, .5);
-            color: white;
-        }
-
-        &:hover {
-            @include mouseHover;
-        }
-
-        &.selected {
-            @include mouseHover;
-        }
-
-        + .tab {
-            margin-left: 6px;
-        }
-    }
 }

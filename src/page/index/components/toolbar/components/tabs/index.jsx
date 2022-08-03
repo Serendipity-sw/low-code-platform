@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.pcss'
 import { useDispatch, useSelector } from 'react-redux'
 import { editSelected } from '../../store'
-import { throttle } from 'lodash'
+import { Segmented } from 'antd'
 
 export default _ => {
   const selected = useSelector( state => state.toolbarStore.selected )
@@ -16,10 +16,16 @@ export default _ => {
 
   return (
     <div className={ style.init }>
-      <span className={ [ style.tab, selected === 1 ? style.selected : '' ].join( ' ' ) }
-            onClick={ throttle( _ => handleSelected( 1 ), 200 ) }>开始</span>
-      <span className={ [ style.tab, selected === 2 ? style.selected : '' ].join( ' ' ) }
-            onClick={ throttle( _ => handleSelected( 2 ), 200 ) }>插入</span>
+      <Segmented options={ [
+        {
+          label: '开始',
+          value: 1
+        },
+        {
+          label: '插入',
+          value: 2
+        }
+      ] } onChange={ value => handleSelected( value ) }/>
     </div>
   )
 }
