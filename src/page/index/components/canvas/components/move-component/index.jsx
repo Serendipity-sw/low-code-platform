@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom'
 import Moveable from 'react-moveable'
 import { useSelector } from 'react-redux'
 
-export default props => {
+export default React.forwardRef( ( props, ref ) => {
 
   const selectControls = useSelector( state => state.lowCodeData.selectControls )
 
@@ -19,6 +19,7 @@ export default props => {
 
   return (
     <Moveable
+      ref={ ref }
       flushSync={ flushSync }
       target={ props.moveTargets }
       ables={ [ DimensionViewable ] }
@@ -73,7 +74,7 @@ export default props => {
       } }
     />
   )
-}
+} )
 
 const DimensionViewable = {
   name: 'dimensionViewable',

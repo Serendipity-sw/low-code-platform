@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AddPageItemAndSelect, SelectControls } from '../../../../store/low-code-data'
 import { v4 as uuidV4 } from 'uuid'
 
-export default props => {
+export default React.forwardRef( ( props, ref ) => {
   const insertControlsSelected = useSelector( state => state.lowCodeData.insertControlsSelected )
 
   const dispatch = useDispatch()
 
   const handleMoveSelect = e => {
-    if ( e.added.length ) {
-      dispatch( SelectControls( e.added.map( item => item.id ) ) )
+    if ( e.afterAdded.length ) {
+      dispatch( SelectControls( e.afterAdded.map( item => item.id ) ) )
     } else {
       if ( insertControlsSelected ) {
         handleInsertControls( e.rect )
@@ -35,6 +35,7 @@ export default props => {
 
   return (
     <Selecto
+      ref={ ref }
       dragContainer={ props.container }
       selectableTargets={ [ `${ props.container } *` ] }
       selectByClick={ true }
@@ -56,4 +57,4 @@ export default props => {
       } }
     />
   )
-}
+} )
