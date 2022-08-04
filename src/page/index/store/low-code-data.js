@@ -17,6 +17,7 @@ const lowCodeDataAction = {
   selectedInsertControls: Symbol( 'selectedInsertControls' ),
   clearSelectedInsertControls: Symbol( 'clearSelectedInsertControls' ),
   selectControls: Symbol( 'selectControls' ),
+  addPageItemAndSelect: Symbol( 'addPageItemAndSelect' ),
   clearSelectControls: Symbol( 'clearSelectControls' )
 }
 
@@ -44,6 +45,13 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, insertControlsSelected: action.selected }
     case lowCodeDataAction.clearSelectedInsertControls:
       return { ...state, insertControlsSelected: '' }
+    case lowCodeDataAction.selectControls:
+      return { ...state, selectControls: action.id }
+    case lowCodeDataAction.clearSelectControls:
+      return { ...state, selectControls: '' }
+    case lowCodeDataAction.addPageItemAndSelect:
+      pageContentData.push( action.payInfo )
+      return { ...state, pageContentData, selectControls: action.payInfo.id }
     default:
       return state
   }
@@ -54,6 +62,12 @@ export default lowCodeData
 export const EditTitle = title => ( { type: lowCodeDataAction.editTitle, title } )
 
 export const AddPageItem = payInfo => ( { type: lowCodeDataAction.addPageItem, payInfo } )
+
+export const SelectControls = id => ( { type: lowCodeDataAction.selectControls, id } )
+
+export const ClearSelectControls = _ => ( { type: lowCodeDataAction.clearSelectControls } )
+
+export const AddPageItemAndSelect = payInfo => ( { type: lowCodeDataAction.addPageItemAndSelect, payInfo } )
 
 export const EditPageItemByIndex = ( index, payInfo ) => ( {
   type: lowCodeDataAction.editPageItemByIndex,

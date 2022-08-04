@@ -6,21 +6,17 @@ import { useSelector } from 'react-redux'
 
 export default _ => {
 
+  const [ moveTargets, setMoveTargets ] = React.useState()
+
   const pageContentData = useSelector( state => state.lowCodeData.pageContentData )
 
-  const container = useRef()
-
-  const [ visible, setVisible ] = useState( false )
-
-  useEffect( _ => {
-    setVisible( !visible )
-  }, [] )
+  const [ container, moveDomRef, selectoDomRef ] = new Array( 3 ).map( _ => useRef() )
 
   const domRender = list => {
     return list.map( item => {
       switch ( item.controls ) {
         case 'div':
-          return <div id={ item.id } style={ item.style }></div>
+          return <div key={ item.id } id={ item.id } style={ item.style }></div>
         default:
           return
       }
@@ -33,9 +29,10 @@ export default _ => {
         {
           domRender( pageContentData )
         }
-        <MoveComponent container={ `.${ style.init }` } viewAble={ true }/>
       </div>
-      <Selecto container={ `.${ style.init }` }/>
+      <MoveComponent moveTargets={moveTargets} setMoveTargets={setMoveTargets} ref={ moveDomRef } selectoDomRef={ selectoDomRef } container={ `.${ style.init }` }
+                     viewAble={ true }/>
+      <Selecto ref={ selectoDomRef } moveTargets={moveTargets} moveDomRef={ moveDomRef } container={ `.${ style.init }` }/>
     </>
   )
 }

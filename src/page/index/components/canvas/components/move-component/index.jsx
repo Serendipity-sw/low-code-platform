@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { flushSync } from 'react-dom'
 import Moveable from 'react-moveable'
+import { useSelector } from 'react-redux'
 
 export default props => {
 
+  const selectControls = useSelector( state => state.lowCodeData.selectControls )
+
+  useEffect( _ => {
+    if ( selectControls?.length ) {
+      if ( Array.isArray( selectControls ) ) {
+        props.setMoveTargets?.( selectControls.map( item => document.getElementById( item ) ) )
+      } else {
+        props.setMoveTargets?.( document.getElementById( selectControls ) )
+      }
+    }
+  }, [ selectControls ] )
 
   return (
     <Moveable
       flushSync={ flushSync }
-      target={ props.target }
-      container={ props.container }
+      target={ props.moveTargets }
       ables={ [ DimensionViewable ] }
       props={ {
         dimensionViewable: props.viewAble
@@ -36,6 +47,14 @@ export default props => {
       rotationPosition={ 'top' }
       padding={ { 'left': 0, 'top': 0, 'right': 0, 'bottom': 0 } }
       onDragStart={ e => {
+      } }
+      onClickGroup={ e => {
+        props.selectoDomRef?.current?.clickTarget?.( e.inputEvent, e.inputTarget )
+      } }
+      onDragGroup={ e => {
+        e.events.forEach( ev => {
+          ev.target.style.transform = ev.transform
+        } )
       } }
       onDrag={ e => {
         e.target.style.transform = e.transform
