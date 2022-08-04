@@ -10,3 +10,5 @@ export const AddPageItemAndSelect = payInfo => ( { type: lowCodeDataAction.addPa
 export const SelectedInsertControls = selected => ( { type: lowCodeDataAction.selectedInsertControls, selected } )
 
 export const ClearSelectedInsertControls = _ => ( { type: lowCodeDataAction.clearSelectedInsertControls } )
+
+export const EditPageItemGroup = list => ( { type: lowCodeDataAction.editPageItemGroup, list } )

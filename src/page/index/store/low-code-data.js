@@ -21,7 +21,15 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, selectControls: action.id }
     case lowCodeDataAction.addPageItemAndSelect:
       pageContentData.push( action.payInfo )
-      return { ...state, pageContentData, selectControls: [action.payInfo.id] }
+      return { ...state, pageContentData, selectControls: [ action.payInfo.id ] }
+    case lowCodeDataAction.editPageItemGroup:
+      action?.list?.forEach( item => {
+        const modal = pageContentData.find( modal => modal.id === item.id )
+        modal.style.transform = item.style.transform
+        modal.style.width = item.style.width
+        modal.style.height = item.style.height
+      } )
+      return { ...state, pageContentData }
     case lowCodeDataAction.clearData:
       return cloneDeep( lowCodeDataInit )
     default:
