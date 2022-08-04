@@ -3,6 +3,7 @@ import { cloneDeep } from 'lodash'
 const lowCodeDataInit = {
   title: '标题编辑',
   insertControlsSelected: '',
+  selectControls: '',
   pageContentData: []
 }
 
@@ -14,7 +15,9 @@ const lowCodeDataAction = {
   delPageItemByIndex: Symbol( 'delPageItemByIndex' ),
   delPageItemById: Symbol( 'delPageItemById' ),
   selectedInsertControls: Symbol( 'selectedInsertControls' ),
-  clearSelectedInsertControls: Symbol( 'clearSelectedInsertControls' )
+  clearSelectedInsertControls: Symbol( 'clearSelectedInsertControls' ),
+  selectControls: Symbol( 'selectControls' ),
+  clearSelectControls: Symbol( 'clearSelectControls' )
 }
 
 const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {

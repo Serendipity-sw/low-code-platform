@@ -16,16 +16,24 @@ export default _ => {
     setVisible( !visible )
   }, [] )
 
+  const domRender = list => {
+    return list.map( item => {
+      switch ( item.controls ) {
+        case 'div':
+          return <div id={ item.id } style={ item.style }></div>
+        default:
+          return
+      }
+    } )
+  }
+
   return (
     <>
       <div ref={ container } className={ style.init }>
         {
-          pageContentData.map( item =>
-            <div id={ item.id } style={ item.style }>{ item.id }</div>
-          )
+          domRender( pageContentData )
         }
-        {/*{ pageContentData.length &&*/}
-        {/*  <MoveComponent target={ `#${ pageContentData[0].id }` } container={ `.${ style.init }` } viewAble={ true }/> }*/}
+        <MoveComponent container={ `.${ style.init }` } viewAble={ true }/>
       </div>
       <Selecto container={ `.${ style.init }` }/>
     </>

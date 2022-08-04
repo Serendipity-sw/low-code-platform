@@ -4,6 +4,7 @@ import Moveable from 'react-moveable'
 
 export default props => {
 
+
   return (
     <Moveable
       flushSync={ flushSync }
