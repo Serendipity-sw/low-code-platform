@@ -3,7 +3,7 @@ import style from './index.pcss'
 import IconFont from '../../../../../../components/icon-font'
 import { controlsList } from './store/controls'
 import { useDispatch, useSelector } from 'react-redux'
-import { ClearSelectedInsertControls, SelectedInsertControls } from '../../../../store/low-code-data'
+import { ClearSelectedInsertControls, SelectedInsertControls } from '../../../../store/lowCodeDataReducers'
 
 export default props => {
 

@@ -3,8 +3,8 @@ import { flushSync } from 'react-dom'
 import Selecto from 'react-selecto'
 import Moveable from 'react-moveable'
 import { useDispatch, useSelector } from 'react-redux'
-import { AddPageItemAndSelect, SelectControls } from '../../../../store/low-code-data'
 import { v4 as uuidV4 } from 'uuid'
+import { AddPageItemAndSelect, SelectControls } from '../../../../store/lowCodeDataReducers'
 
 export default React.forwardRef( props => {
   const insertControlsSelected = useSelector( state => state.lowCodeData.insertControlsSelected )
@@ -50,6 +50,10 @@ export default React.forwardRef( props => {
     } ) )
   }
 
+  const handleMoveableEnd = events => {
+
+  }
+
   return (
     <>
       <Moveable
@@ -89,14 +93,20 @@ export default React.forwardRef( props => {
             ev.target.style.transform = ev.transform
           } )
         } }
+        onDragGroupEnd={ e => {
+        } }
         onDrag={ e => {
           e.target.style.transform = e.transform
+        } }
+        onDragEnd={ e => {
+          debugger
         } }
         onResize={ e => {
           e.target.style.width = `${ e.width }px`
           e.target.style.height = `${ e.height }px`
         } }
         onResizeGroup={ e => {
+          debugger
           e.events.forEach( ev => {
             ev.target.style.width = `${ ev.width }px`
             ev.target.style.height = `${ ev.height }px`

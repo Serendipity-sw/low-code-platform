@@ -3,8 +3,8 @@ import style from './index.pcss'
 import IconFont from '../../../../components/icon-font'
 import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { EditTitle } from '../../store/low-code-data'
 import Tooltip from '../../../../components/tooltip'
+import { EditTitle } from '../../store/lowCodeDataReducers'
 
 export default props => {
   const lowCodeData = useSelector( state => state.lowCodeData )
