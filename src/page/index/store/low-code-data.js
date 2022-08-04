@@ -3,7 +3,7 @@ import { cloneDeep } from 'lodash'
 const lowCodeDataInit = {
   title: '标题编辑',
   insertControlsSelected: '',
-  selectControls: '',
+  selectControls: [],
   pageContentData: []
 }
 
@@ -48,10 +48,10 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
     case lowCodeDataAction.selectControls:
       return { ...state, selectControls: action.id }
     case lowCodeDataAction.clearSelectControls:
-      return { ...state, selectControls: '' }
+      return { ...state, selectControls: [] }
     case lowCodeDataAction.addPageItemAndSelect:
       pageContentData.push( action.payInfo )
-      return { ...state, pageContentData, selectControls: action.payInfo.id }
+      return { ...state, pageContentData, selectControls: [action.payInfo.id] }
     default:
       return state
   }

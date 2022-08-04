@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
 import Moveable from 'react-moveable'
 import { useSelector } from 'react-redux'
 
-export default React.forwardRef( ( props, ref ) => {
+export default React.forwardRef( props => {
 
   const selectControls = useSelector( state => state.lowCodeData.selectControls )
 
+  const [ moveTargets, setMoveTargets ] = useState()
+
   useEffect( _ => {
-    if ( selectControls?.length ) {
-      if ( Array.isArray( selectControls ) ) {
-        props.setMoveTargets?.( selectControls.map( item => document.getElementById( item ) ) )
-      } else {
-        props.setMoveTargets?.( document.getElementById( selectControls ) )
-      }
+    if ( selectControls?.length === 1 ) {
+      setMoveTargets( selectControls.map( item => document.getElementById( item ) )  )
+    }else{
+      setMoveTargets([])
     }
   }, [ selectControls ] )
 
   return (
     <Moveable
-      ref={ ref }
       flushSync={ flushSync }
-      target={ props.moveTargets }
+      target={ moveTargets }
       ables={ [ DimensionViewable ] }
       props={ {
         dimensionViewable: props.viewAble
@@ -49,14 +48,6 @@ export default React.forwardRef( ( props, ref ) => {
       padding={ { 'left': 0, 'top': 0, 'right': 0, 'bottom': 0 } }
       onDragStart={ e => {
       } }
-      onClickGroup={ e => {
-        props.selectoDomRef?.current?.clickTarget?.( e.inputEvent, e.inputTarget )
-      } }
-      onDragGroup={ e => {
-        e.events.forEach( ev => {
-          ev.target.style.transform = ev.transform
-        } )
-      } }
       onDrag={ e => {
         e.target.style.transform = e.transform
       } }
@@ -83,8 +74,6 @@ const DimensionViewable = {
   render( moveable, React ) {
     const rect = moveable.getRect()
 
-    // Add key (required)
-    // Add class prefix moveable-(required)
     return <div key={ 'dimension-viewer' } className={ 'moveable-dimension' } style={ {
       position: 'absolute',
       left: `${ rect.width / 2 }px`,

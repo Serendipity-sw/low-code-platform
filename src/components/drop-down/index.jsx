@@ -3,7 +3,6 @@ import Tippy from '@tippyjs/react'
 import style from './index.pcss'
 import IconFont from '../icon-font'
 import 'tippy.js/themes/light.css'
-import { throttle } from 'lodash'
 
 export default props => {
 
@@ -14,10 +13,10 @@ export default props => {
       <div className={ style.downList }>
         {
           list?.map?.( item => (
-            <div key={ item.iconName } className={ style.row } onClick={ throttle( _ => {
+            <div key={ item.iconName } className={ style.row } onClick={ _ => {
               handleClose()
               item?.onClick?.()
-            }, 200 ) }>
+            } }>
               <IconFont className={ style.icon } name={ `#${ item.iconName }` }/>
               { item.name }
             </div>

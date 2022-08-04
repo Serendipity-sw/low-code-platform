@@ -4,7 +4,6 @@ import IconFont from '../../../../../../components/icon-font'
 import { controlsList } from './store/controls'
 import { useDispatch, useSelector } from 'react-redux'
 import { ClearSelectedInsertControls, SelectedInsertControls } from '../../../../store/low-code-data'
-import { throttle } from 'lodash'
 
 export default props => {
 
@@ -12,15 +11,18 @@ export default props => {
 
   const dispatch = useDispatch()
 
-  const handleControlsClick = selected => dispatch( insertControlsSelected === selected ? ClearSelectedInsertControls() : SelectedInsertControls( selected ) )
+  const handleControlsClick = selected => {
+    console.log( insertControlsSelected === selected, insertControlsSelected, selected )
+    dispatch( insertControlsSelected === selected ? ClearSelectedInsertControls() : SelectedInsertControls( selected ) )
+  }
 
   return (
     <div className={ [ style.init, props.className ].join( ' ' ) }>
       {
         controlsList.map( item =>
-          <div onClick={ throttle( _ => {
+          <div onClick={ _ => {
             handleControlsClick( item.selected )
-          }, 200 ) } key={ item.selected }
+          } } key={ item.selected }
                className={ [ style.column, insertControlsSelected === item.selected ? style.selected : '' ].join( ' ' ) }>
             <IconFont className={ style.icon } name={ item.iconName }/>
             { item.name }

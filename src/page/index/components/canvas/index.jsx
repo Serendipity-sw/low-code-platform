@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import style from './index.pcss'
-import MoveComponent from './components/move-component'
-import Selecto from './components/selecto'
 import { useSelector } from 'react-redux'
+import SelectMove from './components/select-move'
 
 export default _ => {
 
-  const [ moveTargets, setMoveTargets ] = React.useState()
-
   const pageContentData = useSelector( state => state.lowCodeData.pageContentData )
 
-  const [ container, moveDomRef, selectoDomRef ] = new Array( 3 ).map( _ => useRef() )
+  const container = useRef()
 
   const domRender = list => {
     return list.map( item => {
@@ -30,9 +27,7 @@ export default _ => {
           domRender( pageContentData )
         }
       </div>
-      <MoveComponent moveTargets={moveTargets} setMoveTargets={setMoveTargets} ref={ moveDomRef } selectoDomRef={ selectoDomRef } container={ `.${ style.init }` }
-                     viewAble={ true }/>
-      <Selecto ref={ selectoDomRef } moveTargets={moveTargets} moveDomRef={ moveDomRef } container={ `.${ style.init }` }/>
+      <SelectMove container={ `.${ style.init }` }/>
     </>
   )
 }
