@@ -30,8 +30,11 @@ export default props => {
     ref.current._tippy.hide()
   }
 
+  console.log(props.disabled)
+
   return (
-    <Tippy content={ downListDomProcess( props.data ) } ref={ ref } interactive={ true } theme="light"
+    <Tippy content={ downListDomProcess( props.data ) } disabled={ props.disabled ?? false } ref={ ref }
+           interactive={ true } theme="light"
            className={ 'animate__animated animate__rubberBand' }>
       { props.children }
     </Tippy>

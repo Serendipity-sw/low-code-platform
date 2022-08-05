@@ -12,11 +12,13 @@ export default _ => {
   const dispatch = useDispatch()
 
   const handleHideControls = _ => {
-    const list = cloneDeep( pageContentData.filter( item => selectControls.includes( item.id ) ) )
-    list.forEach( item => {
-      item.style.display = 'none'
-    } )
-    dispatch( EditPageItemList( list ) )
+    if ( selectControls.length ){
+      const list = cloneDeep( pageContentData.filter( item => selectControls.includes( item.id ) ) )
+      list.forEach( item => {
+        item.style.display = 'none'
+      } )
+      dispatch( EditPageItemList( list ) )
+    }
   }
 
   return (

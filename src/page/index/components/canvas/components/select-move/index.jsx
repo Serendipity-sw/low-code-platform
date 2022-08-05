@@ -7,9 +7,8 @@ import { v4 as uuidV4 } from 'uuid'
 import { AddPageItemAndSelect, EditPageItemGroup, SelectControls } from '../../../../store/lowCodeDataReducers'
 
 export default React.forwardRef( props => {
-  const insertControlsSelected = useSelector( state => state.lowCodeData.insertControlsSelected )
+  const { selectControls, insertControlsSelected, pageContentData } = useSelector( state => state.lowCodeData )
 
-  const selectControls = useSelector( state => state.lowCodeData.selectControls )
 
   const dispatch = useDispatch()
 
@@ -37,6 +36,7 @@ export default React.forwardRef( props => {
   }
 
   const handleInsertControls = transformObj => {
+    const zIndexMax = Math.max( ...pageContentData.map( item => item.style.zIndex ) )
     const canvasDomObj = document.querySelector( props.container ).getBoundingClientRect()
     dispatch( AddPageItemAndSelect( {
       id: uuidV4(),
@@ -45,7 +45,8 @@ export default React.forwardRef( props => {
         transform: `translate(${ transformObj.left - canvasDomObj.left }px, ${ transformObj.top - canvasDomObj.top }px)`,
         width: `${ transformObj.width < 20 ? 20 : transformObj.width }px`,
         height: `${ transformObj.height < 20 ? 20 : transformObj.height }px`,
-        position: 'absolute'
+        position: 'absolute',
+        zIndex: zIndexMax > 0 ? zIndexMax : 1
       }
     } ) )
   }
