@@ -4,6 +4,7 @@ import Header from './components/header'
 import Toolbar from './components/toolbar'
 import Canvas from './components/canvas'
 import Panel from './components/panel'
+import LayerArea from './components/layer-area'
 
 class Index extends React.Component {
 
@@ -13,6 +14,7 @@ class Index extends React.Component {
         <Header/>
         <Toolbar/>
         <div className={ style.editArea }>
+          <LayerArea/>
           <Canvas/>
           <Panel/>
         </div>
