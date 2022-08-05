@@ -4,7 +4,7 @@ import IconFont from '../../../../components/icon-font'
 import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import Tooltip from '../../../../components/tooltip'
-import { EditTitle } from '../../store/lowCodeDataReducers'
+import { EditTitle, ToggleLayerOpened } from '../../store/lowCodeDataReducers'
 import { throttle } from 'lodash'
 
 export default props => {
@@ -27,6 +27,10 @@ export default props => {
     }
   }
 
+  const handleToggleLayer = _ => {
+    dispatch( ToggleLayerOpened() )
+  }
+
   return (
     <header className={ `${ style.init } ${ props.className ?? '' }` }>
       <div className={ style.rollbackOperate }>
@@ -35,6 +39,10 @@ export default props => {
         </Tooltip>
         <Tooltip content="恢复">
           <IconFont className={ [ style.icon, style.recover ].join( ' ' ) } name="#icon-undo"/>
+        </Tooltip>
+        <Tooltip content="展开或隐藏图层列表">
+          <IconFont className={ [ style.icon, style.recover ].join( ' ' ) } name="#icon-tucengkongzhi"
+                    onClick={ throttle( handleToggleLayer, 500 ) }/>
         </Tooltip>
       </div>
       <span className={ `${ style.title } ${ editVisible ? style.none : '' }` }>

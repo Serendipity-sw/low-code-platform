@@ -12,3 +12,5 @@ export const SelectedInsertControls = selected => ( { type: lowCodeDataAction.se
 export const ClearSelectedInsertControls = _ => ( { type: lowCodeDataAction.clearSelectedInsertControls } )
 
 export const EditPageItemGroup = list => ( { type: lowCodeDataAction.editPageItemGroup, list } )
+
+export const ToggleLayerOpened = _ => ( { type: lowCodeDataAction.toggleLayerOpened } )

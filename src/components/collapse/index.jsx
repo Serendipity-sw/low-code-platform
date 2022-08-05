@@ -19,10 +19,10 @@ export default props => {
     if ( collapseSize ) {
       switch ( props.direction?.toLowerCase?.() ) {
         case 'width':
-          collapseDom.current.style.width = props.isOpened ? collapseSize : 0
+          collapseDom.current.style.width = props.isOpened ? `${ collapseSize }px` : 0
           break
         case 'height':
-          collapseDom.current.style.height = props.isOpened ? collapseSize : 0
+          collapseDom.current.style.height = props.isOpened ? `${ collapseSize }px` : 0
           break
       }
     }

@@ -5,5 +5,6 @@ export const lowCodeDataAction = {
   selectControls: Symbol( 'selectControls' ),
   addPageItemAndSelect: Symbol( 'addPageItemAndSelect' ),
   editPageItemGroup: Symbol( 'editPageItemGroup' ),
-  clearData: Symbol( 'clearData' )
+  clearData: Symbol( 'clearData' ),
+  toggleLayerOpened: Symbol( 'toggleLayerOpened' )
 }

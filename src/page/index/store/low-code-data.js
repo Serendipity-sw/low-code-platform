@@ -4,6 +4,7 @@ import { lowCodeDataAction } from './lowCodeDataAction'
 const lowCodeDataInit = {
   title: '标题编辑',
   insertControlsSelected: '',
+  layerOpened: true,
   selectControls: [],
   pageContentData: []
 }
@@ -32,6 +33,8 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, pageContentData }
     case lowCodeDataAction.clearData:
       return cloneDeep( lowCodeDataInit )
+    case lowCodeDataAction.toggleLayerOpened:
+      return { ...state, layerOpened: !state.layerOpened }
     default:
       return state
   }
