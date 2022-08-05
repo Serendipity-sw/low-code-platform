@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash'
 
 const toolbarStoreInit = {
   // 1: 开始 2:插入
-  selected: 2
+  selected: 1
 }
 
 const toolbarStoreAction = {

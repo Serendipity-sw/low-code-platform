@@ -4,6 +4,7 @@ export const lowCodeDataAction = {
   clearSelectedInsertControls: Symbol( 'clearSelectedInsertControls' ),
   selectControls: Symbol( 'selectControls' ),
   addPageItemAndSelect: Symbol( 'addPageItemAndSelect' ),
+  addPageItemListAndSelect: Symbol( 'addPageItemListAndSelect' ),
   editPageItemGroup: Symbol( 'editPageItemGroup' ),
   clearData: Symbol( 'clearData' ),
   toggleLayerOpened: Symbol( 'toggleLayerOpened' )
