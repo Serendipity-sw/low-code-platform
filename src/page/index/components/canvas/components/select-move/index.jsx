@@ -64,6 +64,7 @@ export default React.forwardRef( props => {
         props={ {
           dimensionViewable: true
         } }
+        preventClickEventOnDrag={ false }
         draggable={ true }
         snappable={ true }
         keepRatio={ false }
