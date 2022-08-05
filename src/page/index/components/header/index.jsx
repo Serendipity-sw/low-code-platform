@@ -5,6 +5,7 @@ import { Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import Tooltip from '../../../../components/tooltip'
 import { EditTitle } from '../../store/lowCodeDataReducers'
+import { throttle } from 'lodash'
 
 export default props => {
   const lowCodeData = useSelector( state => state.lowCodeData )
@@ -39,14 +40,14 @@ export default props => {
       <span className={ `${ style.title } ${ editVisible ? style.none : '' }` }>
           { title }
         <Tooltip content="编辑标题">
-          <IconFont onClick={ handleToggleEdit } className={ style.icon } name="#icon-bianji"/>
+          <IconFont onClick={ throttle( handleToggleEdit, 200 ) } className={ style.icon } name="#icon-bianji"/>
         </Tooltip>
         </span>
       <Input className={ `${ style.input } ${ !editVisible ? style.none : '' }` } placeholder="请输入标题"
              value={ title } onChange={ e => setTitle( e.target.value ) }
              suffix={
                <Tooltip content="标题保存">
-                 <IconFont className={ style.addBtn } onClick={ handleSaveTitle }
+                 <IconFont className={ style.addBtn } onClick={ throttle( handleSaveTitle, 200 ) }
                            name="#icon-baocun"/>
                </Tooltip>
              }/>
