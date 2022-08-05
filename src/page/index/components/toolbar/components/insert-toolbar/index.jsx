@@ -12,7 +12,6 @@ export default props => {
   const dispatch = useDispatch()
 
   const handleControlsClick = selected => {
-    console.log( insertControlsSelected === selected, insertControlsSelected, selected )
     dispatch( insertControlsSelected === selected ? ClearSelectedInsertControls() : SelectedInsertControls( selected ) )
   }
 

@@ -100,14 +100,14 @@ export default React.forwardRef( props => {
           e.target.style.transform = e.transform
         } }
         onDragEnd={ e => {
-          handleMoveableEnd( [ e.target ] )
+          handleMoveableEnd( [ e ] )
         } }
         onResize={ e => {
           e.target.style.width = `${ e.width }px`
           e.target.style.height = `${ e.height }px`
         } }
         onResizeEnd={ e => {
-          handleMoveableEnd( [ e.target ] )
+          handleMoveableEnd( [ e ] )
         } }
         onResizeGroup={ e => {
           e.events.forEach( ev => {
@@ -122,7 +122,7 @@ export default React.forwardRef( props => {
           e.target.style.transform = e.transform
         } }
         onRotateEnd={ e => {
-          handleMoveableEnd( [ e.target ] )
+          handleMoveableEnd( [ e ] )
         } }
         onRotateGroup={ e => {
           e.events.forEach( ev => {

@@ -24,10 +24,10 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, pageContentData, selectControls: [ action.payInfo.id ] }
     case lowCodeDataAction.editPageItemGroup:
       action?.list?.forEach( item => {
-        const modal = pageContentData.find( modal => modal.id === item.id )
-        modal.style.transform = item.style.transform
-        modal.style.width = item.style.width
-        modal.style.height = item.style.height
+        const modal = pageContentData.find( modal => modal.id === item.target.id )
+        modal.style.transform = item.target.style.transform
+        modal.style.width = item.target.style.width
+        modal.style.height = item.target.style.height
       } )
       return { ...state, pageContentData }
     case lowCodeDataAction.clearData:
