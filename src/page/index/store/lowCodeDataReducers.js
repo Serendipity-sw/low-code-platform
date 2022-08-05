@@ -16,3 +16,5 @@ export const EditPageItemGroup = list => ( { type: lowCodeDataAction.editPageIte
 export const ToggleLayerOpened = _ => ( { type: lowCodeDataAction.toggleLayerOpened } )
 
 export const AddPageItemListAndSelect = list => ( { type: lowCodeDataAction.addPageItemListAndSelect, list } )
+
+export const EditPageItemList = list => ( { type: lowCodeDataAction.editPageItemList, list } )

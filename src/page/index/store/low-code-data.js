@@ -26,6 +26,11 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
     case lowCodeDataAction.addPageItemListAndSelect:
       pageContentData.push( ...action.list )
       return { ...state, pageContentData, selectControls: action.list.map( item => item.id ) }
+    case lowCodeDataAction.editPageItemList:
+      action.list.forEach( item => {
+        pageContentData.splice( pageContentData.findIndex( modal => modal.id === item.id ), 1, item )
+      } )
+      return { ...state, pageContentData }
     case lowCodeDataAction.editPageItemGroup:
       action?.list?.forEach( item => {
         const modal = pageContentData.find( modal => modal.id === item.target.id )
