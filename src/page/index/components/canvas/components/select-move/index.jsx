@@ -11,7 +11,7 @@ import {
   SetMoveableRef
 } from '../../../../store/lowCodeDataReducers'
 
-export default React.forwardRef( props => {
+export default props => {
   const { selectControls, insertControlsSelected, pageContentData } = useSelector( state => state.lowCodeData )
 
   const dispatch = useDispatch()
@@ -179,7 +179,7 @@ export default React.forwardRef( props => {
       />
     </>
   )
-} )
+}
 
 const DimensionViewable = {
   name: 'dimensionViewable',
