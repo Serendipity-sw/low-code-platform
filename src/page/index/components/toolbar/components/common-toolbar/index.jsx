@@ -13,6 +13,7 @@ import FontColor from './components/font-color'
 import BackgroundColor from './components/background-color'
 import AlignItems from './components/align-items'
 import Lock from './components/lock'
+import Delete from './components/delete'
 
 export default props => {
   return (
@@ -30,6 +31,7 @@ export default props => {
       <BackgroundColor/>
       <AlignItems/>
       <Lock/>
+      <Delete/>
     </div>
   )
 }

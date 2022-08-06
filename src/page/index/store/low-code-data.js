@@ -47,6 +47,12 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, moveableRef: action.payInfo }
     case lowCodeDataAction.setContainerSize:
       return { ...state, containerSize: action.payInfo }
+    case lowCodeDataAction.deleteControls:
+      return {
+        ...state,
+        selectControls: [],
+        pageContentData: pageContentData.filter( item => !state.selectControls.includes( item.id ) )
+      }
     case lowCodeDataAction.toggleLayerOpened:
       return { ...state, layerOpened: !state.layerOpened }
     default:

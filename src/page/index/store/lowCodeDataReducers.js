@@ -22,3 +22,5 @@ export const EditPageItemList = list => ( { type: lowCodeDataAction.editPageItem
 export const SetMoveableRef = payInfo => ( { type: lowCodeDataAction.setMoveableRef, payInfo } )
 
 export const SetContainerSize = payInfo => ( { type: lowCodeDataAction.setContainerSize, payInfo } )
+
+export const DeleteControls = _ => ( { type: lowCodeDataAction.deleteControls } )
