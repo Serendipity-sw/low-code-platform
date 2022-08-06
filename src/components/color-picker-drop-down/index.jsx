@@ -4,20 +4,26 @@ import 'tippy.js/themes/light.css'
 import style from './index.pcss'
 import ColorPicker from './components/color-picker'
 
-export default props => {
+class ColorPickerDropDown extends React.Component {
+  #ref = React.createRef()
 
-  const ref = useRef()
-
-  const handleClose = _ => {
-    ref.current._tippy.hide()
+  shouldComponentUpdate( nextProps, nextState, nextContext ) {
+    return nextProps.disabled !== this.props.disabled
   }
 
-  return (
-    <Tippy content={ <ColorPicker/> } ref={ ref } interactive={ true }
-           theme="light"
-           arrow={ false }
-           className={ `animate__animated animate__rubberBand ${ style.tranBg }` }>
-      { props.children }
-    </Tippy>
-  )
+  render() {
+    const { colorType, disabled, children } = this.props
+    return (
+      <Tippy content={ <ColorPicker colorType={ colorType }/> } ref={ this.#ref }
+             interactive={ true }
+             theme="light"
+             arrow={ false }
+             disabled={ disabled ?? false }
+             className={ `animate__animated animate__rubberBand ${ style.tranBg }` }>
+        { children }
+      </Tippy>
+    )
+  }
 }
+
+export default ColorPickerDropDown

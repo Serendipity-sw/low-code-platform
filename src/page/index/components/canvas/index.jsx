@@ -14,7 +14,7 @@ export default _ => {
     return list.map( item => {
       switch ( item.controls ) {
         case controlsType.div:
-          return <div key={ item.id } id={ item.id } style={ item.style }></div>
+          return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
         default:
           return
       }
