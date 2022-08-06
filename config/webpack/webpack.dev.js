@@ -3,6 +3,7 @@ const baseWebpackConfig = require('./webpack.conf')
 const webpack = require('webpack')
 
 let config = merge(baseWebpackConfig, {
+  devtool:'eval-cheap-module-source-map',
   plugins: [
     new webpack.DefinePlugin({
       Gloomy_env: JSON.stringify('development')
