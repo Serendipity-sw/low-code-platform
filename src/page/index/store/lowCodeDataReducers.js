@@ -18,3 +18,7 @@ export const ToggleLayerOpened = _ => ( { type: lowCodeDataAction.toggleLayerOpe
 export const AddPageItemListAndSelect = list => ( { type: lowCodeDataAction.addPageItemListAndSelect, list } )
 
 export const EditPageItemList = list => ( { type: lowCodeDataAction.editPageItemList, list } )
+
+export const SetMoveableRef = payInfo => ( { type: lowCodeDataAction.setMoveableRef, payInfo } )
+
+export const SetContainerSize = payInfo => ( { type: lowCodeDataAction.setContainerSize, payInfo } )

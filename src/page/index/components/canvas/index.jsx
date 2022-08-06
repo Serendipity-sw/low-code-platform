@@ -1,12 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import style from './index.pcss'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import SelectMove from './components/select-move'
 import { controlsType } from '../../utils/controls-type'
+import { SetContainerSize } from '../../store/lowCodeDataReducers'
 
 export default _ => {
 
   const pageContentData = useSelector( state => state.lowCodeData.pageContentData )
+
+  const dispatch = useDispatch()
 
   const container = useRef()
 
@@ -20,6 +23,10 @@ export default _ => {
       }
     } )
   }
+
+  useEffect( _ => {
+    dispatch( SetContainerSize( { width: container.current.offsetWidth, height: container.current.offsetHeight } ) )
+  }, [ container ] )
 
   return (
     <div className={ style.init }>

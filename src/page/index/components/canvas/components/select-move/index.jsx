@@ -4,11 +4,15 @@ import Selecto from 'react-selecto'
 import Moveable from 'react-moveable'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidV4 } from 'uuid'
-import { AddPageItemAndSelect, EditPageItemGroup, SelectControls } from '../../../../store/lowCodeDataReducers'
+import {
+  AddPageItemAndSelect,
+  EditPageItemGroup,
+  SelectControls,
+  SetMoveableRef
+} from '../../../../store/lowCodeDataReducers'
 
 export default React.forwardRef( props => {
   const { selectControls, insertControlsSelected, pageContentData } = useSelector( state => state.lowCodeData )
-
 
   const dispatch = useDispatch()
 
@@ -24,6 +28,10 @@ export default React.forwardRef( props => {
       setMoveTargets( [] )
     }
   }, [ selectControls ] )
+
+  useEffect( _ => {
+    dispatch( SetMoveableRef( moveableRef.current ) )
+  }, [ moveableRef ] )
 
   const handleMoveSelect = e => {
     if ( e.selected.length ) {

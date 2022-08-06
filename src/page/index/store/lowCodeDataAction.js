@@ -8,5 +8,7 @@ export const lowCodeDataAction = {
   editPageItemGroup: Symbol( 'editPageItemGroup' ),
   editPageItemList: Symbol( 'editPageItemList' ),
   clearData: Symbol( 'clearData' ),
-  toggleLayerOpened: Symbol( 'toggleLayerOpened' )
+  toggleLayerOpened: Symbol( 'toggleLayerOpened' ),
+  setMoveableRef: Symbol( 'setMoveableRef' ),
+  setContainerSize: Symbol( 'setContainerSize' )
 }

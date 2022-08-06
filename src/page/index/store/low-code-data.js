@@ -6,7 +6,9 @@ const lowCodeDataInit = {
   insertControlsSelected: '',
   layerOpened: true,
   selectControls: [],
-  pageContentData: []
+  pageContentData: [],
+  moveableRef: null,
+  containerSize: { width: 0, height: 0 }
 }
 
 const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
@@ -41,6 +43,10 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
       return { ...state, pageContentData }
     case lowCodeDataAction.clearData:
       return cloneDeep( lowCodeDataInit )
+    case lowCodeDataAction.setMoveableRef:
+      return { ...state, moveableRef: action.payInfo }
+    case lowCodeDataAction.setContainerSize:
+      return { ...state, containerSize: action.payInfo }
     case lowCodeDataAction.toggleLayerOpened:
       return { ...state, layerOpened: !state.layerOpened }
     default:
