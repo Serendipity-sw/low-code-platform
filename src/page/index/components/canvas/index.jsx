@@ -22,13 +22,13 @@ export default _ => {
   }
 
   return (
-    <>
-      <div ref={ container } className={ style.init }>
+    <div className={ style.init }>
+      <div ref={ container } className={ style.canvas }>
         {
           domRender( pageContentData )
         }
       </div>
-      <SelectMove container={ `.${ style.init }` }/>
-    </>
+      <SelectMove container={ `.${ style.canvas }` }/>
+    </div>
   )
 }
