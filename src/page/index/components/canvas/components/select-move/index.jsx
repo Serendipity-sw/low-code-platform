@@ -33,6 +33,10 @@ export default props => {
     dispatch( SetMoveableRef( moveableRef.current ) )
   }, [ moveableRef ] )
 
+  const selectControlsMove = e => {
+    selectoRef.current.clickTarget( e.inputEvent, findDragTargetDom( e.inputTarget ) ?? e.inputEvent.target )
+  }
+
   const handleMoveSelect = e => {
     if ( e.selected.length ) {
       dispatch( SelectControls( e.selected.map( item => item.id ) ) )
@@ -62,6 +66,28 @@ export default props => {
 
   const handleMoveableEnd = events => {
     dispatch( EditPageItemGroup( events ) )
+  }
+
+  const handleDragStart = e => {
+    const moveable = moveableRef.current
+    const target = findDragTargetDom( e.inputEvent.target ) ?? e.inputEvent.target
+    if (
+      moveable.isMoveableElement( target )
+      || moveTargets.some( t => t === target || t?.contains?.( target ) )
+    ) {
+      e.stop()
+    }
+  }
+
+  const findDragTargetDom = target => {
+    const findItem = pageContentData.find( item => item.id === target.id )
+    if ( findItem ) {
+      return target
+    } else if ( target.parentElement ) {
+      return findDragTargetDom( target.parentElement )
+    } else {
+      return null
+    }
   }
 
   return (
@@ -100,7 +126,7 @@ export default props => {
         rotationPosition={ 'top' }
         padding={ { 'left': 0, 'top': 0, 'right': 0, 'bottom': 0 } }
         onClickGroup={ e => {
-          selectoRef.current.clickTarget( e.inputEvent, e.inputTarget )
+          selectControlsMove( e )
         } }
         onDragGroup={ e => {
           e.events.forEach( ev => {
@@ -167,16 +193,7 @@ export default props => {
             handleMoveSelect( e )
           }
         } }
-        onDragStart={ e => {
-          const moveable = moveableRef.current
-          const target = e.inputEvent.target
-          if (
-            moveable.isMoveableElement( target )
-            || moveTargets.some( t => t === target || t.contains( target ) )
-          ) {
-            e.stop()
-          }
-        } }
+        onDragStart={ handleDragStart }
       />
     </>
   )
