@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, Suspense } from 'react'
 import style from './index.pcss'
 import { useDispatch, useSelector } from 'react-redux'
 import SelectMove from './components/select-move'
 import { controlsType } from '../../utils/controls-type'
 import { SetContainerSize } from '../../store/lowCodeDataReducers'
+
+const ChartLine = React.lazy( () => import('./components/chart-line') )
 
 export default _ => {
 
@@ -19,7 +21,11 @@ export default _ => {
         case controlsType.div:
           return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
         case controlsType.img:
-          return <img key={ item.id } id={ item.id } src={ item.src || 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*aetpSLfcpFIAAAAAAAAAAABkARQnAQ' } style={ item.style } alt={ item.id }/>
+          return <img key={ item.id } id={ item.id }
+                      src={ item.src || 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*aetpSLfcpFIAAAAAAAAAAABkARQnAQ' }
+                      style={ item.style } alt={ item.id }/>
+        case controlsType.chartLine:
+          return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
         default:
           return
       }
@@ -31,13 +37,15 @@ export default _ => {
   }, [ container ] )
 
   return (
-    <div className={ style.init }>
-      <div ref={ container } className={ style.canvas }>
-        {
-          domRender( pageContentData )
-        }
+    <Suspense>
+      <div className={ style.init }>
+        <div ref={ container } className={ style.canvas }>
+          {
+            domRender( pageContentData )
+          }
+        </div>
+        <SelectMove container={ `.${ style.canvas }` }/>
       </div>
-      <SelectMove container={ `.${ style.canvas }` }/>
-    </div>
+    </Suspense>
   )
 }
