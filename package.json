@@ -1,6 +1,6 @@
 {
-  "name": "react-scaffolding",
-  "version": "1.0.0",
+  "name": "low-code-platform",
+  "version": "0.0.1",
   "description": "scaffolding",
   "scripts": {
     "zip": "gulp buildTime && gulp zip",
