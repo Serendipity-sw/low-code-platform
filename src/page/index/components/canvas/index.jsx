@@ -6,6 +6,7 @@ import { controlsType } from '../../utils/controls-type'
 import { SetContainerSize } from '../../store/lowCodeDataReducers'
 
 const ChartLine = React.lazy( () => import('./components/chart-line') )
+const ChartColumn = React.lazy( () => import('./components/chart-column') )
 
 export default _ => {
 
@@ -26,6 +27,8 @@ export default _ => {
                       style={ item.style } alt={ item.id }/>
         case controlsType.chartLine:
           return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
+        case controlsType.chartColumn:
+          return <ChartColumn key={ item.id } id={ item.id } style={ item.style }/>
         default:
           return
       }
