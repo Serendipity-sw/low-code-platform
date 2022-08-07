@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/themes/light.css'
 import style from './index.pcss'
