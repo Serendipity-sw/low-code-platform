@@ -8,6 +8,10 @@ class MapControls extends React.Component {
     this.#mapInit()
   }
 
+  componentWillUnmount() {
+    this.#map?.destroy?.()
+  }
+
   #mapInit = _ => {
     AMapLoader.load( {
       key: Map_Key,
