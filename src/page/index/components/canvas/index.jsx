@@ -18,6 +18,8 @@ export default _ => {
       switch ( item.controls ) {
         case controlsType.div:
           return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
+        case controlsType.img:
+          return <img key={ item.id } id={ item.id } src={ item.src } style={ item.style } alt={ item.id }/>
         default:
           return
       }

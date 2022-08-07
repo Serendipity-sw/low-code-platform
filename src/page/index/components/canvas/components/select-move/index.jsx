@@ -54,7 +54,8 @@ export default props => {
         width: `${ transformObj.width < 20 ? 20 : transformObj.width }px`,
         height: `${ transformObj.height < 20 ? 20 : transformObj.height }px`,
         position: 'absolute',
-        zIndex: zIndexMax > 0 ? zIndexMax : 1
+        zIndex: zIndexMax > 0 ? zIndexMax : 1,
+        display: 'block'
       }
     } ) )
   }

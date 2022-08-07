@@ -1,3 +1,4 @@
 export const controlsType = {
-  div: 'div'
+  div: 'div',
+  img: 'img'
 }
