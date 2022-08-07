@@ -40,30 +40,6 @@ export default _ => {
       name: '饼图',
       selected: controlsType.chartPie,
       onClick: handleControlsClick
-    },
-    {
-      image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*QlLyQ6EleE4AAAAAAAAAAABkARQnAQ',
-      name: '面积图',
-      selected: controlsType.chartArea,
-      onClick: handleControlsClick
-    },
-    {
-      image: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*yRI3QYLprt8AAAAAAAAAAABkARQnAQ',
-      name: '分面',
-      selected: controlsType.chartFacet,
-      onClick: handleControlsClick
-    },
-    {
-      image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*WmOcQafphvEAAAAAAAAAAABkARQnAQ',
-      name: '动态图表',
-      selected: controlsType.chartDynamic,
-      onClick: handleControlsClick
-    },
-    {
-      image: 'https://gw.alipayobjects.com/mdn/rms_d314dd/afts/img/A*p3cjT4RWDEkAAAAAAAAAAAAAARQnAQ',
-      name: '桑基图',
-      selected: controlsType.chartSankey,
-      onClick: handleControlsClick
     }
   ]
 
