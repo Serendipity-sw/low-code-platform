@@ -7,6 +7,7 @@ import { SetContainerSize } from '../../store/lowCodeDataReducers'
 
 const ChartLine = React.lazy( () => import('./components/chart-line') )
 const ChartColumn = React.lazy( () => import('./components/chart-column') )
+const ChartBar = React.lazy( () => import('./components/chart-bar') )
 
 export default _ => {
 
@@ -29,6 +30,8 @@ export default _ => {
           return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
         case controlsType.chartColumn:
           return <ChartColumn key={ item.id } id={ item.id } style={ item.style }/>
+        case controlsType.chartBar:
+          return <ChartBar key={ item.id } id={ item.id } style={ item.style }/>
         default:
           return
       }
