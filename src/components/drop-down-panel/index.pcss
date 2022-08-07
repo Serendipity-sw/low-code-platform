@@ -1,0 +1,41 @@
+.downList {
+    --itemWidth: 120px;
+    padding: 3px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--itemWidth));
+    grid-column-gap: 16px;
+    grid-row-gap: @grid-row-gap;
+    width: calc(var(--itemWidth) * 2 + @grid-column-gap + @padding * 2);
+    justify-content: space-between;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        padding: 4px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        .exampleIcon {
+            display: block;
+            size: 100% 84px;
+        }
+
+        .title {
+            @util center;
+            margin-top: 8px;
+        }
+
+        @mixin selected {
+            background: #cad4f9;
+        }
+
+        &:hover {
+            @include selected;
+        }
+
+        &.selected {
+            @include selected;
+        }
+    }
+
+}

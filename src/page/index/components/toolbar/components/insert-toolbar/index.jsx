@@ -4,6 +4,7 @@ import IconFont from '../../../../../../components/icon-font'
 import { controlsList } from './store/controls'
 import { useDispatch, useSelector } from 'react-redux'
 import { ClearSelectedInsertControls, SelectedInsertControls } from '../../../../store/lowCodeDataReducers'
+import SummaryGraph from './components/summary-graph'
 
 export default props => {
 
@@ -28,6 +29,7 @@ export default props => {
           </div>
         )
       }
+      <SummaryGraph/>
     </div>
   )
 }
