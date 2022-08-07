@@ -5,7 +5,8 @@ const webpack = require('webpack')
 let config = merge(baseWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
-      Gloomy_env: JSON.stringify('production')
+      Gloomy_env: JSON.stringify('production'),
+      Map_Key: JSON.stringify('')
     })
   ]
 })

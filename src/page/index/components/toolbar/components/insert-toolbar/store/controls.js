@@ -10,5 +10,10 @@ export const controlsList = [
     name: '图片',
     selected: controlsType.img,
     iconName: '#icon-tupian1'
+  },
+  {
+    name: '地图',
+    selected: controlsType.map,
+    iconName: '#icon-ditu'
   }
 ]

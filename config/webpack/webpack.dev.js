@@ -6,7 +6,8 @@ let config = merge(baseWebpackConfig, {
   devtool:'eval-cheap-module-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      Gloomy_env: JSON.stringify('development')
+      Gloomy_env: JSON.stringify('development'),
+      Map_Key: JSON.stringify('b6f3a086b83159ee8f080b361d1384d2')
     })
   ]
 })

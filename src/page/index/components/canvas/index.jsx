@@ -9,6 +9,7 @@ const ChartLine = React.lazy( () => import('./components/chart-line') )
 const ChartColumn = React.lazy( () => import('./components/chart-column') )
 const ChartBar = React.lazy( () => import('./components/chart-bar') )
 const ChartPie = React.lazy( () => import('./components/chart-pie') )
+const MapControls = React.lazy( () => import('./components/map-controls') )
 
 export default _ => {
 
@@ -35,6 +36,8 @@ export default _ => {
           return <ChartBar key={ item.id } id={ item.id } style={ item.style }/>
         case controlsType.chartPie:
           return <ChartPie key={ item.id } id={ item.id } style={ item.style }/>
+        case controlsType.map:
+          return <MapControls key={ item.id } id={ item.id } style={ item.style }/>
         default:
           return
       }
