@@ -5,7 +5,7 @@ import { InputNumber, Select } from 'antd'
 export default props => {
   return (
     <div className={ [ style.init, props.className ].join( ' ' ) }>
-      <span className={ style.rowTitle }>背景</span>
+      <span className={ style.rowTitle }>文本</span>
       <div className={ style.row }>
         <span className={ style.columnTitle }>字体</span>
         <div className={ style.inputArea }>
