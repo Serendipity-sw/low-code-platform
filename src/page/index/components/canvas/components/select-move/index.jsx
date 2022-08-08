@@ -53,6 +53,7 @@ export default props => {
     dispatch( AddPageItemAndSelect( {
       id: uuidV4(),
       controls: insertControlsSelected,
+      name: insertControlsSelected,
       style: {
         transform: `translate(${ transformObj.left - canvasDomObj.left }px, ${ transformObj.top - canvasDomObj.top }px)`,
         width: `${ transformObj.width < 20 ? 20 : transformObj.width }px`,

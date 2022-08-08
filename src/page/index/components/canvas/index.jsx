@@ -22,21 +22,21 @@ export default _ => {
   const domRender = list => {
     return list.map( item => {
       switch ( item.controls ) {
-        case controlsType.div:
+        case controlsType.div.name:
           return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
-        case controlsType.img:
+        case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
                       src={ item.src || 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*aetpSLfcpFIAAAAAAAAAAABkARQnAQ' }
                       style={ item.style } alt={ item.id }/>
-        case controlsType.chartLine:
+        case controlsType.chartLine.name:
           return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
-        case controlsType.chartColumn:
+        case controlsType.chartColumn.name:
           return <ChartColumn key={ item.id } id={ item.id } style={ item.style }/>
-        case controlsType.chartBar:
+        case controlsType.chartBar.name:
           return <ChartBar key={ item.id } id={ item.id } style={ item.style }/>
-        case controlsType.chartPie:
+        case controlsType.chartPie.name:
           return <ChartPie key={ item.id } id={ item.id } style={ item.style }/>
-        case controlsType.map:
+        case controlsType.map.name:
           return <MapControls key={ item.id } id={ item.id } style={ item.style }/>
         default:
           return

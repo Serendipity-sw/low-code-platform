@@ -3,7 +3,7 @@ import { lowCodeDataAction } from './lowCodeDataAction'
 
 export const EditTitle = title => ( { type: lowCodeDataAction.editTitle, title } )
 
-export const SelectControls = id => ( { type: lowCodeDataAction.selectControls, id } )
+export const SelectControls = idArray => ( { type: lowCodeDataAction.selectControls, idArray } )
 
 export const AddPageItemAndSelect = payInfo => ( { type: lowCodeDataAction.addPageItemAndSelect, payInfo } )
 

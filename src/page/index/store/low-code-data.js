@@ -21,7 +21,7 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
     case lowCodeDataAction.clearSelectedInsertControls:
       return { ...state, insertControlsSelected: '' }
     case lowCodeDataAction.selectControls:
-      return { ...state, selectControls: action.id }
+      return { ...state, selectControls: action.idArray }
     case lowCodeDataAction.addPageItemAndSelect:
       pageContentData.push( action.payInfo )
       return { ...state, pageContentData, selectControls: [ action.payInfo.id ] }

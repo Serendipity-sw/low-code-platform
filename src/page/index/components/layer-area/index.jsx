@@ -3,6 +3,7 @@ import style from './index.pcss'
 import Collapse from '../../../../components/collapse'
 import IconFont from '../../../../components/icon-font'
 import { useSelector } from 'react-redux'
+import MenuList from './components/menu-list'
 
 export default _ => {
   const layerOpened = useSelector( state => state.lowCodeData.layerOpened )
@@ -16,6 +17,7 @@ export default _ => {
             图层管理
           </span>
         </header>
+        <MenuList className={ style.menuList }/>
       </div>
     </Collapse>
   )

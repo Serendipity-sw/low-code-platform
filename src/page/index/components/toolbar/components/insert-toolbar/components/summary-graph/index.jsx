@@ -20,25 +20,25 @@ export default _ => {
     {
       image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*aetpSLfcpFIAAAAAAAAAAABkARQnAQ',
       name: '折线图',
-      selected: controlsType.chartLine,
+      selected: controlsType.chartLine.name,
       onClick: handleControlsClick
     },
     {
       image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*377_TZgcotkAAAAAAAAAAABkARQnAQ',
       name: '柱状图',
-      selected: controlsType.chartColumn,
+      selected: controlsType.chartColumn.name,
       onClick: handleControlsClick
     },
     {
       image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*62ClRKVbiIYAAAAAAAAAAABkARQnAQ',
       name: '条形图',
-      selected: controlsType.chartBar,
+      selected: controlsType.chartBar.name,
       onClick: handleControlsClick
     },
     {
       image: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*kiaxRq6B7lsAAAAAAAAAAABkARQnAQ',
       name: '饼图',
-      selected: controlsType.chartPie,
+      selected: controlsType.chartPie.name,
       onClick: handleControlsClick
     }
   ]
