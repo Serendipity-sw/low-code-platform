@@ -18,6 +18,18 @@
     padding: 18px !important;
 }
 
+:global .ant-select {
+    width: 100%;
+
+    :global .ant-select-selector {
+        @include borderRadius;
+    }
+}
+
+:global .ant-input-number {
+    @include borderRadius;
+}
+
 html, body {
     overflow: hidden;
 }
