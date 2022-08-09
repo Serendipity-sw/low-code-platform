@@ -17,7 +17,6 @@ import 'animate.css'
 moment.locale( 'zh-cn' )
 
 ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
-  <React.StrictMode>
     <Provider key="store" store={ configureStore }>
       <HashRouter>
         <ConfigProvider locale={ zhCN }>
@@ -25,5 +24,4 @@ ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
         </ConfigProvider>
       </HashRouter>
     </Provider>
-  </React.StrictMode>
 )
