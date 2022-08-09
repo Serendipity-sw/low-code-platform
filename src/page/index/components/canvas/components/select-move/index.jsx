@@ -5,7 +5,7 @@ import Moveable from 'react-moveable'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidV4 } from 'uuid'
 import {
-  AddPageItemAndSelect,
+  AddPageItemAndSelect, ClearSelectedInsertControls,
   EditPageItemGroup,
   SelectControls,
   SetMoveableRef
@@ -63,6 +63,7 @@ export default props => {
         display: 'block'
       }
     } ) )
+    dispatch(ClearSelectedInsertControls())
   }
 
   const handleMoveableEnd = events => {
