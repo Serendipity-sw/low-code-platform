@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from '../index.pcss'
-import { Collapse, InputNumber, Select } from 'antd'
+import { Collapse, InputNumber, message, Select, Upload } from 'antd'
 import { fontFamilyList, fontStyleMapList, textAlignMapList } from '../../../../../../utils/font-style-util'
 import ColorPickerDropDown from '../../../../../../../../components/color-picker-drop-down'
 import { useDispatch, useSelector } from 'react-redux'
-import { findStyleAttributes } from '../../../../../../utils/find-style-attributes'
+import { FindStyle } from '../../../../../../utils/find-style-attributes'
 import { cloneDeep } from 'lodash'
 import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
 import IconFont from '../../../../../../../../components/icon-font'
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
+import { FileUpload } from '../../../../../../../../service/file'
 
 export default props => {
 
   const { selectControls, pageContentData } = useSelector( state => state.lowCodeData )
 
   const dispatch = useDispatch()
+
+  const [ uploadLoading, setUploadLoading ] = useState( false )
 
   const selectControlsList = _ => cloneDeep( pageContentData.filter( item => selectControls.includes( item.id ) ) )
 
@@ -25,6 +29,20 @@ export default props => {
     dispatch( EditPageItemList( list ) )
   }
 
+  const findStyle = FindStyle( pageContentData, selectControls )
+
+  const beforeUpload = file => {
+    if ( file.type.split( '/' )[0] !== 'image' ) {
+      message.error( '上传文件格式错误,只支持图片格式!' )
+      return false
+    }
+    setUploadLoading( true )
+    FileUpload( file ).then( result => {
+      changeSelectControlsItem( `url("${ result.data }")`, 'backgroundImage' )
+    } ).finally( _ => setUploadLoading( false ) )
+    return false
+  }
+
   return (
     <div className={ [ style.init, props.className ].join( ' ' ) }>
       <Collapse defaultActiveKey={ [ 'font-style' ] }>
@@ -33,7 +51,7 @@ export default props => {
             <span className={ style.columnTitle }>字体</span>
             <div className={ style.inputArea }>
               <Select options={ fontFamilyList.map( item => ( { label: item, value: item } ) ) }
-                      value={ findStyleAttributes( pageContentData, selectControls, 'fontFamily' ) }
+                      value={ findStyle?.fontFamily }
                       onChange={ value => changeSelectControlsItem( value, 'fontFamily' ) }/>
             </div>
           </div>
@@ -41,7 +59,7 @@ export default props => {
             <span className={ style.columnTitle }>字号</span>
             <div className={ style.inputArea }>
               <InputNumber min={ 10 } max={ 99 }
-                           value={ findStyleAttributes( pageContentData, selectControls, 'fontSize' )?.replace( 'px', '' ) }
+                           value={ findStyle?.fontSize?.replace?.( 'px', '' ) }
                            onChange={ value => changeSelectControlsItem( `${ value }px`, 'fontSize' ) }/>
             </div>
           </div>
@@ -49,7 +67,7 @@ export default props => {
             <span className={ style.columnTitle }>字形</span>
             <div className={ style.inputArea }>
               <Select options={ fontStyleMapList }
-                      value={ findStyleAttributes( pageContentData, selectControls, 'fontStyle' ) }
+                      value={ findStyle?.fontStyle }
                       onChange={ value => changeSelectControlsItem( value, 'fontStyle' ) }/>
             </div>
           </div>
@@ -57,7 +75,7 @@ export default props => {
             <span className={ style.columnTitle }>对齐方式</span>
             <div className={ style.inputArea }>
               <Select options={ textAlignMapList }
-                      value={ findStyleAttributes( pageContentData, selectControls, 'textAlign' ) }
+                      value={ findStyle?.textAlign }
                       onChange={ value => changeSelectControlsItem( value, 'textAlign' ) }/>
             </div>
           </div>
@@ -73,7 +91,7 @@ export default props => {
             <span className={ style.columnTitle }>间距</span>
             <div className={ style.inputArea }>
               <InputNumber min={ 0 } max={ 99 }
-                           value={ findStyleAttributes( pageContentData, selectControls, 'letterSpacing' )?.replace( 'px', '' ) }
+                           value={ findStyle?.letterSpacing?.replace?.( 'px', '' ) }
                            onChange={ value => changeSelectControlsItem( `${ value }px`, 'letterSpacing' ) }/>
             </div>
           </div>
@@ -92,19 +110,34 @@ export default props => {
           <div className={ style.row }>
             <span className={ style.columnTitle }>图片</span>
             <div className={ style.inputArea }>
-              <InputNumber precision={ 2 } min={ 0 } max={ 99 }/>
-            </div>
-          </div>
-          <div className={ style.row }>
-            <span className={ style.columnTitle }>大小</span>
-            <div className={ style.inputArea }>
-              <InputNumber precision={ 2 } min={ 0 } max={ 100 }/>
-            </div>
-          </div>
-          <div className={ style.row }>
-            <span className={ style.columnTitle }>图片位置</span>
-            <div className={ style.inputArea }>
-              <InputNumber precision={ 2 } min={ 0 } max={ 99 }/>
+              <Upload
+                name="avatar"
+                listType="picture-card"
+                className="avatar-uploader"
+                accept="image/*"
+                showUploadList={ false }
+                beforeUpload={ beforeUpload }
+              >
+                { findStyle?.backgroundImage ? (
+                  <div style={ {
+                    width: '100%',
+                    height: '100%',
+                    backgroundSize: '100% 100%',
+                    backgroundImage: findStyle?.backgroundImage
+                  } }/>
+                ) : (
+                  <div>
+                    { uploadLoading ? <LoadingOutlined/> : <PlusOutlined/> }
+                    <div
+                      style={ {
+                        marginTop: 8
+                      } }
+                    >
+                      上传
+                    </div>
+                  </div>
+                ) }
+              </Upload>
             </div>
           </div>
         </Collapse.Panel>

@@ -60,10 +60,11 @@ export default props => {
         height: `${ transformObj.height < 20 ? 20 : transformObj.height }px`,
         position: 'absolute',
         zIndex: zIndexMax > 0 ? zIndexMax : 1,
-        display: 'block'
+        display: 'block',
+        backgroundSize: '100% 100%'
       }
     } ) )
-    dispatch(ClearSelectedInsertControls())
+    dispatch( ClearSelectedInsertControls() )
   }
 
   const handleMoveableEnd = events => {
