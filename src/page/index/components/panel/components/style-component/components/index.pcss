@@ -1,6 +1,12 @@
 .init {
     overflow: hidden;
 
+    :global .ant-collapse {
+        + :global(.ant-collapse) {
+            margin-top: 12px;
+        }
+    }
+
     .row {
         display: flex;
         align-items: center;
@@ -15,7 +21,15 @@
 
         .inputArea {
             margin-left: 12px;
-            width: calc(100% - var(--columnTitleWidth) - @margin-left)
+            width: calc(100% - var(--columnTitleWidth) - @margin-left);
+
+            .selectColor {
+                display: flex;
+                size: 28px;
+                background: blue;
+                border-radius: 6px;
+                cursor: pointer;
+            }
         }
 
         + .row {
