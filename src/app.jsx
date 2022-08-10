@@ -13,15 +13,16 @@ import './app.pcss'
 import 'src/common/assets/unit-style.pcss'
 import 'src/common/assets/common.pcss'
 import 'animate.css'
+import './request/axios'
 
 moment.locale( 'zh-cn' )
 
 ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
-    <Provider key="store" store={ configureStore }>
-      <HashRouter>
-        <ConfigProvider locale={ zhCN }>
-          <Index/>
-        </ConfigProvider>
-      </HashRouter>
-    </Provider>
+  <Provider key="store" store={ configureStore }>
+    <HashRouter>
+      <ConfigProvider locale={ zhCN }>
+        <Index/>
+      </ConfigProvider>
+    </HashRouter>
+  </Provider>
 )
