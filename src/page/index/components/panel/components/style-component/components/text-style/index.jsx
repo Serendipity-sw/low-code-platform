@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { findStyleAttributes } from '../../../../../../utils/find-style-attributes'
 import { cloneDeep } from 'lodash'
 import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
+import IconFont from '../../../../../../../../components/icon-font'
 
 export default props => {
 
@@ -64,14 +65,16 @@ export default props => {
             <span className={ style.columnTitle }>字体颜色</span>
             <div className={ style.inputArea }>
               <ColorPickerDropDown colorType={ 'color' }>
-                <i className={ style.selectColor } />
+                <IconFont className={ style.selectColor } name="#icon-youqitiaoseban"/>
               </ColorPickerDropDown>
             </div>
           </div>
           <div className={ style.row }>
             <span className={ style.columnTitle }>间距</span>
             <div className={ style.inputArea }>
-              <InputNumber precision={ 2 } min={ 0 } max={ 99 }/>
+              <InputNumber min={ 0 } max={ 99 }
+                           value={ findStyleAttributes( pageContentData, selectControls, 'letterSpacing' )?.replace( 'px', '' ) }
+                           onChange={ value => changeSelectControlsItem( `${ value }px`, 'letterSpacing' ) }/>
             </div>
           </div>
         </Collapse.Panel>
@@ -81,7 +84,9 @@ export default props => {
           <div className={ style.row }>
             <span className={ style.columnTitle }>背景颜色</span>
             <div className={ style.inputArea }>
-              <Select/>
+              <ColorPickerDropDown colorType={ 'backgroundColor' }>
+                <IconFont className={ style.selectColor } name="#icon-youqitiaoseban"/>
+              </ColorPickerDropDown>
             </div>
           </div>
           <div className={ style.row }>
