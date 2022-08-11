@@ -8,7 +8,7 @@ import { FindStyle } from '../../../../../../utils/find-style-attributes'
 import { FileUpload } from '../../../../../../../../service/file'
 import { useDispatch, useSelector } from 'react-redux'
 import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, throttle } from 'lodash'
 
 export default _ => {
 
@@ -26,6 +26,14 @@ export default _ => {
     const list = selectControlsList()
     list.forEach( item => {
       item.style[keyName] = value
+    } )
+    dispatch( EditPageItemList( list ) )
+  }
+
+  const handleDelBgImg = _ => {
+    const list = selectControlsList()
+    list.forEach( item => {
+      delete item.style.backgroundImage
     } )
     dispatch( EditPageItemList( list ) )
   }
@@ -85,7 +93,7 @@ export default _ => {
               ) }
             </Upload>
             <IconFont className={ [ style.delBtn, findStyle?.backgroundImage || style.none ].join( ' ' ) }
-                      name="#icon-shanchu1"/>
+                      name="#icon-shanchu1" onClick={ throttle( handleDelBgImg, 200 ) }/>
           </div>
         </div>
       </Collapse.Panel>
