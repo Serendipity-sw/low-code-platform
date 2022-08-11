@@ -10,6 +10,8 @@ import {
   SelectControls,
   SetMoveableRef
 } from '../../../../store/lowCodeDataReducers'
+import { controlsType } from '../../../../utils/controls-type'
+import { SelectFileImageFileUpload } from '../../../../../../service/file'
 
 export default props => {
   const { selectControls, insertControlsSelected, pageContentData } = useSelector( state => state.lowCodeData )
@@ -50,7 +52,7 @@ export default props => {
   const handleInsertControls = transformObj => {
     const zIndexMax = Math.max( ...pageContentData.map( item => item.style.zIndex ) )
     const canvasDomObj = document.querySelector( props.container ).getBoundingClientRect()
-    dispatch( AddPageItemAndSelect( {
+    const addItem = {
       id: uuidV4(),
       controls: insertControlsSelected,
       name: insertControlsSelected,
@@ -63,7 +65,11 @@ export default props => {
         display: 'block',
         backgroundSize: '100% 100%'
       }
-    } ) )
+    }
+    if ( controlsType.img.name === insertControlsSelected ) {
+      SelectFileImageFileUpload()
+    }
+    dispatch( AddPageItemAndSelect( addItem ) )
     dispatch( ClearSelectedInsertControls() )
   }
 

@@ -26,7 +26,7 @@ export default _ => {
           return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
         case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
-                      src={ item.src || 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*aetpSLfcpFIAAAAAAAAAAABkARQnAQ' }
+                      src={ item.src }
                       style={ item.style } alt={ item.id }/>
         case controlsType.chartLine.name:
           return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
