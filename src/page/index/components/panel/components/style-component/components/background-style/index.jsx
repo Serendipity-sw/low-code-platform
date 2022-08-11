@@ -55,7 +55,7 @@ export default _ => {
         </div>
         <div className={ style.row }>
           <span className={ style.columnTitle }>图片</span>
-          <div className={ style.inputArea }>
+          <div className={ [ style.inputArea, style.delFunction ].join( ' ' ) }>
             <Upload
               name="avatar"
               listType="picture-card"
@@ -84,6 +84,8 @@ export default _ => {
                 </div>
               ) }
             </Upload>
+            <IconFont className={ [ style.delBtn, findStyle?.backgroundImage || style.none ].join( ' ' ) }
+                      name="#icon-shanchu1"/>
           </div>
         </div>
       </Collapse.Panel>
