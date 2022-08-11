@@ -4,6 +4,7 @@ import { Drawer, Segmented } from 'antd'
 import { menuTypeMap } from './store/menu-type'
 import StyleComponent from './components/style-component'
 import { useSelector } from 'react-redux'
+import DataSource from './components/data-source'
 
 export default _ => {
 
@@ -27,6 +28,7 @@ export default _ => {
                      options={ Object.entries( menuTypeMap ).map( item => item[1] ) }/>
         </div>
         <StyleComponent className={ menuTypeMap.style.value === selectTab || style.none }/>
+        <DataSource className={ menuTypeMap.data.value === selectTab || style.none }/>
       </div>
     </Drawer>
   )
