@@ -1,3 +1,7 @@
+$selected {
+    background: #cad4f9;
+}
+
 .downList {
     --itemWidth: 120px;
     padding: 3px;
@@ -25,16 +29,12 @@
             margin-top: 8px;
         }
 
-        @mixin selected {
-            background: #cad4f9;
-        }
-
         &:hover {
-            @include selected;
+            @extend $selected;
         }
 
         &.selected {
-            @include selected;
+            @extend $selected;
         }
     }
 

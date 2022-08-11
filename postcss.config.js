@@ -1,8 +1,11 @@
 module.exports = {
   plugins: [
+    require('postcss-nested'),
     require('postcss-import'),
+    require('postcss-atroot'),
+    require('postcss-extend-rule'),
+    require('postcss-property-lookup'),
     require('autoprefixer'),
-    require('precss'),
     require('postcss-use'),
     require('postcss-autoreset')({
       reset: {
