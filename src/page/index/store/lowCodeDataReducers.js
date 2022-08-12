@@ -24,3 +24,8 @@ export const SetMoveableRef = payInfo => ( { type: lowCodeDataAction.setMoveable
 export const SetContainerSize = payInfo => ( { type: lowCodeDataAction.setContainerSize, payInfo } )
 
 export const DeleteControls = _ => ( { type: lowCodeDataAction.deleteControls } )
+
+export const EditSelectedControlsFontContent = richEditContent => ( {
+  type: lowCodeDataAction.editSelectedControlsFontContent,
+  richEditContent
+} )

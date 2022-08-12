@@ -11,5 +11,6 @@ export const lowCodeDataAction = {
   toggleLayerOpened: Symbol( 'toggleLayerOpened' ),
   setMoveableRef: Symbol( 'setMoveableRef' ),
   setContainerSize: Symbol( 'setContainerSize' ),
-  deleteControls: Symbol( 'deleteControls' )
+  deleteControls: Symbol( 'deleteControls' ),
+  editSelectedControlsFontContent: Symbol( 'editSelectedControlsFontContent' )
 }

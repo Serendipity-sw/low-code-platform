@@ -1,4 +1,4 @@
-import React, { useEffect, useId } from 'react'
+import React, { useEffect, useId, useImperativeHandle, useRef } from 'react'
 import style from './index.pcss'
 import EditorJS from '@editorjs/editorjs'
 import Header from '@editorjs/header'
@@ -23,6 +23,8 @@ import Undo from 'editorjs-undo'
 export default React.forwardRef( ( props, ref ) => {
 
   const id = useId()
+
+  const componentRef = useRef()
 
   const toolsObj = {
     header: {
@@ -84,16 +86,25 @@ export default React.forwardRef( ( props, ref ) => {
   }
 
   useEffect( _ => {
-    ref = new EditorJS( {
+    componentRef.current = new EditorJS( {
       holder: id,
       tools: toolsObj,
+      readOnly: props.readOnly ?? false,
       onReady: () => {
-        new Undo( { editor: ref } )
-        new DragDrop( ref )
+        new Undo( { editor: componentRef.current } )
+        new DragDrop( componentRef.current )
+      },
+      onChange( api, event ) {
+        console.log( 'gloomy,', api )
       }
     } )
   }, [] )
 
+  useImperativeHandle( ref, () => ( {
+    save: _ => {
+      return componentRef.current?.save?.()
+    }
+  } ) )
 
   return (
     <div id={ id } className={ [ style.init, props.className ].join( ' ' ) }>
