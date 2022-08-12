@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import style from './index.pcss'
 import { Drawer, Segmented } from 'antd'
 import { menuTypeMap } from './store/menu-type'
-import StyleComponent from './components/style-component'
 import { useSelector } from 'react-redux'
-import DataSource from './components/data-source'
+import FontPanel from './components/font-panel'
 
 export default _ => {
 
@@ -27,8 +26,7 @@ export default _ => {
           <Segmented value={ selectTab } onChange={ value => setSelectTab( value ) }
                      options={ Object.entries( menuTypeMap ).map( item => item[1] ) }/>
         </div>
-        <StyleComponent className={ menuTypeMap.style.value === selectTab || style.none }/>
-        <DataSource className={ menuTypeMap.data.value === selectTab || style.none }/>
+        <FontPanel selectTab={ selectTab } className={ style.none }/>
       </div>
     </Drawer>
   )

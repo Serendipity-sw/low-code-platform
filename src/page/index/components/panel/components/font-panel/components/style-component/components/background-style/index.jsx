@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Collapse, message, Upload } from 'antd'
 import style from '../index.pcss'
-import ColorPickerDropDown from '../../../../../../../../components/color-picker-drop-down'
-import IconFont from '../../../../../../../../components/icon-font'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
-import { FindStyle } from '../../../../../../utils/find-style-attributes'
-import { FileUpload } from '../../../../../../../../service/file'
 import { useDispatch, useSelector } from 'react-redux'
-import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
 import { cloneDeep, throttle } from 'lodash'
+import { FindStyle } from '../../../../../../../../utils/find-style-attributes'
+import { EditPageItemList } from '../../../../../../../../store/lowCodeDataReducers'
+import { FileUpload } from '../../../../../../../../../../service/file'
+import ColorPickerDropDown from '../../../../../../../../../../components/color-picker-drop-down'
+import IconFont from '../../../../../../../../../../components/icon-font'
 
 export default _ => {
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import style from '../index.pcss'
 import { Collapse, InputNumber, Select } from 'antd'
-import { fontFamilyList, fontStyleMapList, textAlignMapList } from '../../../../../../utils/font-style-util'
-import ColorPickerDropDown from '../../../../../../../../components/color-picker-drop-down'
 import { useDispatch, useSelector } from 'react-redux'
-import { FindStyle } from '../../../../../../utils/find-style-attributes'
 import { cloneDeep } from 'lodash'
-import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
-import IconFont from '../../../../../../../../components/icon-font'
 import BackgroundStyle from '../background-style'
+import { EditPageItemList } from '../../../../../../../../store/lowCodeDataReducers'
+import { FindStyle } from '../../../../../../../../utils/find-style-attributes'
+import { fontFamilyList, fontStyleMapList, textAlignMapList } from '../../../../../../../../utils/font-style-util'
+import ColorPickerDropDown from '../../../../../../../../../../components/color-picker-drop-down'
+import IconFont from '../../../../../../../../../../components/icon-font'
 
 export default props => {
 
