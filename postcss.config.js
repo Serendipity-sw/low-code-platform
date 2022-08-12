@@ -7,6 +7,9 @@ module.exports = {
     require('postcss-property-lookup'),
     require('autoprefixer'),
     require('postcss-use'),
+    require('cssnano')({
+      preset: 'default',
+    }),
     require('postcss-autoreset')({
       reset: {
       },
