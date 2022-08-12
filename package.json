@@ -99,6 +99,7 @@
     "editorjs-alert": "^1.0.3",
     "editorjs-drag-drop": "^1.1.5",
     "editorjs-header-with-alignment": "^1.0.1",
+    "editorjs-style": "^3.0.3",
     "editorjs-toggle-block": "^0.2.5",
     "editorjs-tooltip": "^1.1.7",
     "editorjs-undo": "^2.0.8",

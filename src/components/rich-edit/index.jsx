@@ -20,6 +20,8 @@ import Tooltip from 'editorjs-tooltip'
 import DragDrop from 'editorjs-drag-drop'
 import Undo from 'editorjs-undo'
 
+const editorJSStyle = require( 'editorjs-style' )
+
 export default React.forwardRef( ( props, ref ) => {
 
   const id = useId()
@@ -51,6 +53,7 @@ export default React.forwardRef( ( props, ref ) => {
     table: Table,
     code: editorJsCodeFlask,
     underline: Underline,
+    style: editorJSStyle.StyleInlineTool,
     tooltip: {
       class: Tooltip,
       config: {
