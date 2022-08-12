@@ -27,17 +27,17 @@ export default _ => {
         case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
                       src={ item.src }
-                      style={ item.style } alt={ item.id }/>
+                      style={ item.style } alt={ item.id } />
         case controlsType.chartLine.name:
-          return <ChartLine key={ item.id } id={ item.id } style={ item.style }/>
+          return <ChartLine key={ item.id } id={ item.id } style={ item.style } />
         case controlsType.chartColumn.name:
-          return <ChartColumn key={ item.id } id={ item.id } style={ item.style }/>
+          return <ChartColumn key={ item.id } id={ item.id } style={ item.style } />
         case controlsType.chartBar.name:
-          return <ChartBar key={ item.id } id={ item.id } style={ item.style }/>
+          return <ChartBar key={ item.id } id={ item.id } style={ item.style } />
         case controlsType.chartPie.name:
-          return <ChartPie key={ item.id } id={ item.id } style={ item.style }/>
+          return <ChartPie key={ item.id } id={ item.id } style={ item.style } />
         case controlsType.map.name:
-          return <MapControls key={ item.id } id={ item.id } style={ item.style }/>
+          return <MapControls key={ item.id } id={ item.id } style={ item.style } />
         default:
           return
       }
@@ -56,7 +56,7 @@ export default _ => {
             domRender( pageContentData )
           }
         </div>
-        <SelectMove container={ `.${ style.canvas }` }/>
+        <SelectMove container={ `.${ style.canvas }` } />
       </div>
     </Suspense>
   )
