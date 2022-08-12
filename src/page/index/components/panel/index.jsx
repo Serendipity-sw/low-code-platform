@@ -1,4 +1,4 @@
-import React, { startTransition, useState, lazy } from 'react'
+import React, { startTransition, useState, lazy, useSyncExternalStore } from 'react'
 import style from './index.pcss'
 import { Drawer, Segmented } from 'antd'
 import { menuTypeMap } from './store/menu-type'
