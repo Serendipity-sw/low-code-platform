@@ -9,7 +9,7 @@ const FontPanel = lazy( () => import('./components/font-panel') )
 
 export default _ => {
 
-  const [ selectTab, setSelectTab ] = useState( menuTypeMap.style.value )
+  const [ selectTab, setSelectTab ] = useState( menuTypeMap.data.value )
 
   const { selectControls, pageContentData } = useSelector( state => state.lowCodeData )
 
