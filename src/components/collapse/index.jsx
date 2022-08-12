@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { startTransition, useEffect, useRef, useState } from 'react'
 import style from './index.pcss'
 
 export default props => {
@@ -9,7 +9,9 @@ export default props => {
 
   useEffect( _ => {
     if ( collapseSize === 0 ) {
-      setCollapseSize( collapseDom.current?.offsetWidth )
+      startTransition(_=>{
+        setCollapseSize( collapseDom.current?.offsetWidth )
+      })
     }
     collapseDom.current?.addEventListener?.( 'transitionend', handleTransitionEnd )
     return _ => collapseDom.current?.removeEventListener?.( 'transitionend', handleTransitionEnd )
