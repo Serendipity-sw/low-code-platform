@@ -24,5 +24,65 @@ export const menuTypeMap = {
       label: '事件',
       value: 2
     }
+  },
+  [controlsType.img.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
+  },
+  [controlsType.map.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
+  },
+  [controlsType.chartLine.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
+  },
+  [controlsType.chartColumn.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
+  },
+  [controlsType.chartBar.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
+  },
+  [controlsType.chartPie.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
   }
 }
