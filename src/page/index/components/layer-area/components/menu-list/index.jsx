@@ -35,7 +35,6 @@ export default props => {
     <div className={ [ style.init, props.className ].join( ' ' ) }>
       <Tree
         showIcon
-        multiple
         selectedKeys={ selectControls }
         className="draggable-tree"
         blockNode

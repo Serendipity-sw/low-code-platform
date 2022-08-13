@@ -93,6 +93,7 @@ export default React.forwardRef( ( props, ref ) => {
       holder: id,
       tools: toolsObj,
       readOnly: props.readOnly ?? false,
+      data: props.data,
       onReady: () => {
         new Undo( { editor: componentRef.current } )
         new DragDrop( componentRef.current )
@@ -106,6 +107,14 @@ export default React.forwardRef( ( props, ref ) => {
   useImperativeHandle( ref, () => ( {
     save: _ => {
       return componentRef.current?.save?.()
+    },
+    clear: _ => {
+      componentRef.current?.clear?.()
+    },
+    setData: data => {
+      if ( data ) {
+        componentRef.current?.render?.( data )
+      }
     }
   } ) )
 

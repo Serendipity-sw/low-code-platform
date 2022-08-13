@@ -1,14 +1,28 @@
+import { controlsType } from '../../../utils/controls-type'
+
 export const menuTypeMap = {
-  style: {
-    label: '样式',
-    value: 1
+  [controlsType.div.name]: {
+    style: {
+      label: '样式',
+      value: 1
+    },
+    data: {
+      label: '数据',
+      value: 2
+    },
+    event: {
+      label: '事件',
+      value: 3
+    }
   },
-  data: {
-    label: '数据',
-    value: 2
-  },
-  event: {
-    label: '事件',
-    value: 3
+  [controlsType.richEdit.name]: {
+    data: {
+      label: '数据',
+      value: 1
+    },
+    event: {
+      label: '事件',
+      value: 2
+    }
   }
 }

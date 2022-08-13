@@ -40,7 +40,8 @@ export default props => {
   }
 
   const handleMoveSelect = e => {
-    if ( e.selected.length ) {
+    const moveSelectIdList = e.selected?.map?.( item => item.id )
+    if ( pageContentData.filter( item => moveSelectIdList?.includes( item.id ) )?.length ) {
       dispatch( SelectControls( e.selected.map( item => item.id ) ) )
     } else {
       if ( insertControlsSelected ) {

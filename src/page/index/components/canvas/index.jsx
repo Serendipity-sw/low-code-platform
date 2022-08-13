@@ -11,6 +11,7 @@ const ChartBar = React.lazy( () => import('./components/chart-bar') )
 const ChartPie = React.lazy( () => import('./components/chart-pie') )
 const MapControls = React.lazy( () => import('./components/map-controls') )
 const FontControls = React.lazy( () => import('./components/font-controls') )
+const RichEditControls = React.lazy( () => import('./components/rich-edit-controls') )
 
 export default _ => {
 
@@ -25,6 +26,8 @@ export default _ => {
       switch ( item.controls ) {
         case controlsType.div.name:
           return <FontControls key={ item.id } { ...item }/>
+        case controlsType.richEdit.name:
+          return <RichEditControls key={ item.id } { ...item }/>
         case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
                       src={ item.src }

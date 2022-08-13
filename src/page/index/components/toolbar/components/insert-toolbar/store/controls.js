@@ -7,6 +7,11 @@ export const controlsList = [
     iconName: '#icon-wenbenfengge'
   },
   {
+    name: '富文本',
+    selected: controlsType.richEdit.name,
+    iconName: '#icon-editor-'
+  },
+  {
     name: '图片',
     selected: controlsType.img.name,
     iconName: '#icon-tupian1'
