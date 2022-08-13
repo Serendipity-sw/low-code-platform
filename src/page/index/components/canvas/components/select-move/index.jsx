@@ -63,7 +63,9 @@ export default props => {
         position: 'absolute',
         zIndex: zIndexMax > 0 ? zIndexMax : 1,
         display: 'block',
-        backgroundSize: '100% 100%'
+        backgroundSize: '100% 100%',
+        wordBreak: 'break-all',
+        overflow: 'hidden'
       }
     }
     if ( controlsType.img.name === insertControlsSelected ) {

@@ -1,40 +1,36 @@
-import React, { lazy, useRef, useState } from 'react'
+import React, { startTransition } from 'react'
 import style from './index.pcss'
-import { Button, Modal } from 'antd'
-import { throttle } from 'lodash'
-
-const RichEdit = lazy( () => import('src/components/rich-edit') )
+import { Input } from 'antd'
+import { useDispatch, useSelector } from 'react-redux'
+import { cloneDeep } from 'lodash'
+import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
 
 export default props => {
 
-  const [ modalVisible, setModalVisible ] = useState( false )
+  const { selectControls, pageContentData } = useSelector( state => state.lowCodeData )
 
-  const richEditRef = useRef()
+  const dispatch = useDispatch()
 
-  const toggleModalVisible = _ => {
-    if ( modalVisible ) {
-      richEditRef.current?.save?.().then( outputData => {
-        console.log( outputData )
+  const selectControlsList = _ => cloneDeep( pageContentData.filter( item => selectControls.includes( item.id ) ) )
+
+  const changeSelectControlsItem = ( { target } ) => {
+    startTransition( _ => {
+      const list = selectControlsList()
+      list.forEach( item => {
+        item.data = target.value
       } )
-    }
-    setModalVisible( !modalVisible )
+      dispatch( EditPageItemList( list ) )
+    } )
   }
 
   return (
     <div className={ [ style.init, props.className ].join( ' ' ) }>
       <div className={ style.row }>
         <span className={ style.rowTitle }>文本内容</span>
-        <Button className={ style.contentEdit } type="dashed" size="large"
-                onClick={ throttle( toggleModalVisible, 200 ) }>
-          内容编辑
-        </Button>
+        <Input.TextArea rows={ 6 } className={ style.contentEdit }
+                        defaultValue={ pageContentData.find( item => selectControls.includes( item.id ) )?.data }
+                        onChange={ changeSelectControlsItem }/>
       </div>
-      <Modal title="文本编辑" visible={ modalVisible } onOk={ throttle( toggleModalVisible, 200 ) }
-             onCancel={ throttle( toggleModalVisible, 200 ) }>
-        <React.Suspense>
-          <RichEdit ref={ richEditRef }/>
-        </React.Suspense>
-      </Modal>
     </div>
   )
 }

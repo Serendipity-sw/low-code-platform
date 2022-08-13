@@ -10,6 +10,7 @@ const ChartColumn = React.lazy( () => import('./components/chart-column') )
 const ChartBar = React.lazy( () => import('./components/chart-bar') )
 const ChartPie = React.lazy( () => import('./components/chart-pie') )
 const MapControls = React.lazy( () => import('./components/map-controls') )
+const FontControls = React.lazy( () => import('./components/font-controls') )
 
 export default _ => {
 
@@ -23,21 +24,21 @@ export default _ => {
     return list.map( item => {
       switch ( item.controls ) {
         case controlsType.div.name:
-          return <div key={ item.id } id={ item.id } style={ item.style }>{ item.id }</div>
+          return <FontControls key={ item.id } { ...item }/>
         case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
                       src={ item.src }
-                      style={ item.style } alt={ item.id } />
+                      style={ item.style } alt={ item.id }/>
         case controlsType.chartLine.name:
-          return <ChartLine key={ item.id } id={ item.id } style={ item.style } />
+          return <ChartLine key={ item.id } { ...item }/>
         case controlsType.chartColumn.name:
-          return <ChartColumn key={ item.id } id={ item.id } style={ item.style } />
+          return <ChartColumn key={ item.id } { ...item }/>
         case controlsType.chartBar.name:
-          return <ChartBar key={ item.id } id={ item.id } style={ item.style } />
+          return <ChartBar key={ item.id } { ...item }/>
         case controlsType.chartPie.name:
-          return <ChartPie key={ item.id } id={ item.id } style={ item.style } />
+          return <ChartPie key={ item.id } { ...item }/>
         case controlsType.map.name:
-          return <MapControls key={ item.id } id={ item.id } style={ item.style } />
+          return <MapControls key={ item.id } { ...item }/>
         default:
           return
       }
@@ -56,7 +57,7 @@ export default _ => {
             domRender( pageContentData )
           }
         </div>
-        <SelectMove container={ `.${ style.canvas }` } />
+        <SelectMove container={ `.${ style.canvas }` }/>
       </div>
     </Suspense>
   )
