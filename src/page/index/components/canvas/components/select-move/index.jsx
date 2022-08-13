@@ -220,7 +220,7 @@ const DimensionViewable = {
     return <div key={ 'dimension-viewer' } className={ 'moveable-dimension' } style={ {
       position: 'absolute',
       left: `${ rect.width / 2 }px`,
-      top: `${ rect.height + 20 }px`,
+      top: `${ rect.height + 10 }px`,
       background: '#4af',
       borderRadius: '2px',
       padding: '2px 4px',
