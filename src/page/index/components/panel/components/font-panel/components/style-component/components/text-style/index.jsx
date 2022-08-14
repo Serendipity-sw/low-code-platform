@@ -3,12 +3,13 @@ import style from '../index.pcss'
 import { Collapse, InputNumber, Select } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { cloneDeep } from 'lodash'
-import BackgroundStyle from '../background-style'
 import { EditPageItemList } from '../../../../../../../../store/lowCodeDataReducers'
 import { FindStyle } from '../../../../../../../../utils/find-style-attributes'
 import { fontFamilyList, fontStyleMapList, textAlignMapList } from '../../../../../../../../utils/font-style-util'
 import ColorPickerDropDown from '../../../../../../../../../../components/color-picker-drop-down'
 import IconFont from '../../../../../../../../../../components/icon-font'
+import LayerName from '../../../../../layer-name'
+import BackgroundStyle from '../../../../../background-style'
 
 export default props => {
 
@@ -30,6 +31,7 @@ export default props => {
 
   return (
     <div className={ [ style.init, props.className ].join( ' ' ) }>
+      <LayerName/>
       <Collapse defaultActiveKey={ [ 'font-style' ] }>
         <Collapse.Panel header="字体" key="font-style">
           <div className={ style.row }>

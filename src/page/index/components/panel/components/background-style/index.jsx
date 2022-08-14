@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Collapse, message, Upload } from 'antd'
-import style from '../index.pcss'
+import style from './index.pcss'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { cloneDeep, throttle } from 'lodash'
-import { FindStyle } from '../../../../../../../../utils/find-style-attributes'
-import { EditPageItemList } from '../../../../../../../../store/lowCodeDataReducers'
-import { FileUpload } from '../../../../../../../../../../service/file'
-import ColorPickerDropDown from '../../../../../../../../../../components/color-picker-drop-down'
-import IconFont from '../../../../../../../../../../components/icon-font'
+import { FileUpload } from '../../../../../../service/file'
+import { EditPageItemList } from '../../../../store/lowCodeDataReducers'
+import { FindStyle } from '../../../../utils/find-style-attributes'
+import IconFont from '../../../../../../components/icon-font'
+import ColorPickerDropDown from '../../../../../../components/color-picker-drop-down'
 
 export default _ => {
 
