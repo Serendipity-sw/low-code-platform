@@ -112,7 +112,7 @@ module.exports = {
       filename: './css/[name].bundle.[chunkhash].css'
     } ),
     new HtmlWebpackPlugin( {
-      title: 'webpack Boilerplate',
+      title: '低代码平台',
       template: path.resolve( __dirname, '../../template.html' ),
       filename: 'index.html',
       inject: 'body'
