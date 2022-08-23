@@ -1,4 +1,4 @@
-$borderRadius {
+@mixin borderRadius {
     border-radius: 6px !important;
 }
 
@@ -7,22 +7,22 @@ $borderRadius {
 }
 
 :global .ant-input {
-    @extend $borderRadius;
+    @include borderRadius;
 }
 
 :global .ant-segmented {
-    @extend $borderRadius;
+    @include borderRadius;
 }
 
 :global .ant-segmented-item-selected {
-    @extend $borderRadius;
+    @include borderRadius;
 }
 
 :global .ant-select {
     width: 100%;
 
     :global .ant-select-selector {
-        @extend $borderRadius;
+        @include borderRadius;
     }
 }
 
@@ -31,7 +31,7 @@ $borderRadius {
 }
 
 :global .ant-input-number {
-    @extend $borderRadius;
+    @include borderRadius;
 }
 
 :global .ant-modal-mask {
