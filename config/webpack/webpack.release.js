@@ -33,6 +33,9 @@ let config = merge( baseWebpackConfig, {
       }
     ]
   },
+  performance: {
+    hints: false,
+  },
   plugins: [
     new webpack.DefinePlugin( {
       Gloomy_env: JSON.stringify( 'release' ),
