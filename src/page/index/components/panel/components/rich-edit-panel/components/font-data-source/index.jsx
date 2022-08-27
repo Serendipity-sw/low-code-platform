@@ -53,7 +53,7 @@ export default props => {
           内容编辑
         </Button>
       </div>
-      <Modal title="文本编辑" visible={ modalVisible } onOk={ throttle( handleSureBtn, 200 ) }
+      <Modal className={style.richDialog} title="文本编辑" visible={ modalVisible } onOk={ throttle( handleSureBtn, 200 ) }
              onCancel={ throttle( toggleModalVisible, 200 ) }>
         <React.Suspense>
           <RichEdit ref={ richEditRef }
