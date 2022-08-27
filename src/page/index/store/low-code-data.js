@@ -44,6 +44,10 @@ const lowCodeData = ( state = cloneDeep( lowCodeDataInit ), action ) => {
         modal.style.height = item.target.style.height
       } )
       return { ...state, pageContentData }
+    case lowCodeDataAction.editPageItemTitleById:
+      const item = pageContentData.find( modal => modal.id === action.payInfo.key )
+      item.alias = action.payInfo.title
+      return { ...state, pageContentData }
     case lowCodeDataAction.clearData:
       return cloneDeep( lowCodeDataInit )
     case lowCodeDataAction.setMoveableRef:

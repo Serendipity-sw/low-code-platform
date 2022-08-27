@@ -29,3 +29,8 @@ export const EditSelectedControlsFontContent = richEditContent => ( {
   type: lowCodeDataAction.editSelectedControlsFontContent,
   richEditContent
 } )
+
+export const EditPageItemTitleById = payInfo => ( {
+  type: lowCodeDataAction.editPageItemTitleById,
+  payInfo
+} )

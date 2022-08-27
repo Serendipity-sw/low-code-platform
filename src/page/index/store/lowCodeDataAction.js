@@ -12,5 +12,6 @@ export const lowCodeDataAction = {
   setMoveableRef: Symbol( 'setMoveableRef' ),
   setContainerSize: Symbol( 'setContainerSize' ),
   deleteControls: Symbol( 'deleteControls' ),
-  editSelectedControlsFontContent: Symbol( 'editSelectedControlsFontContent' )
+  editSelectedControlsFontContent: Symbol( 'editSelectedControlsFontContent' ),
+  editPageItemTitleById: Symbol( 'editPageItemTitleById' )
 }

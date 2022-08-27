@@ -14,6 +14,8 @@ import 'src/common/assets/unit-style.pcss'
 import 'src/common/assets/common.pcss'
 import 'animate.css'
 import './request/axios'
+import '@szhsin/react-menu/dist/index.css'
+import '@szhsin/react-menu/dist/transitions/slide.css'
 
 moment.locale( 'zh-cn' )
 
