@@ -8,7 +8,6 @@ import { FindStyle } from '../../../../../../../../utils/find-style-attributes'
 import { fontFamilyList, fontStyleMapList, textAlignMapList } from '../../../../../../../../utils/font-style-util'
 import ColorPickerDropDown from '../../../../../../../../../../components/color-picker-drop-down'
 import IconFont from '../../../../../../../../../../components/icon-font'
-import BackgroundStyle from '../../../../../background-style'
 
 export default props => {
 
@@ -82,7 +81,6 @@ export default props => {
           </div>
         </Collapse.Panel>
       </Collapse>
-      <BackgroundStyle/>
     </div>
   )
 }
