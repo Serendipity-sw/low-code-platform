@@ -1,63 +1,59 @@
-.init {
-    overflow: hidden;
-
-    :global .ant-collapse {
-        + :global(.ant-collapse) {
-            margin-top: 12px;
-        }
+:global .ant-collapse {
+    + :global(.ant-collapse) {
+        margin-top: 12px;
     }
+}
 
-    .row {
+.row {
+    display: flex;
+    align-items: center;
+    --columnTitleWidth: 70px;
+
+    .columnTitle {
         display: flex;
         align-items: center;
-        --columnTitleWidth: 70px;
+        justify-content: flex-end;
+        width: var(--columnTitleWidth);
+    }
 
-        .columnTitle {
+    .inputArea {
+        margin-left: 12px;
+        width: calc(100% - var(--columnTitleWidth) - @margin-left);
+
+        .selectColor {
+            display: flex;
+            size: 28px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        &.delFunction {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            width: var(--columnTitleWidth);
-        }
 
-        .inputArea {
-            margin-left: 12px;
-            width: calc(100% - var(--columnTitleWidth) - @margin-left);
-
-            .selectColor {
-                display: flex;
-                size: 28px;
-                border-radius: 6px;
+            .delBtn {
+                width: 209px;
+                height: 19px;
                 cursor: pointer;
             }
-
-            &.delFunction {
-                display: flex;
-                align-items: center;
-
-                .delBtn {
-                    width: 209px;
-                    height: 19px;
-                    cursor: pointer;
-                }
-            }
-        }
-
-        + .row {
-            margin-top: 12px;
         }
     }
 
-    .rowTitle {
-        display: flex;
-        align-items: center;
-        height: 47px;
-        font-size: 16px;
-        font-weight: bold;
-        padding-left: 22px;
-        font-family: serif;
+    + .row {
+        margin-top: 12px;
     }
+}
 
-    .none {
-        display: none;
-    }
+.rowTitle {
+    display: flex;
+    align-items: center;
+    height: 47px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 22px;
+    font-family: serif;
+}
+
+.none {
+    display: none;
 }

@@ -34,31 +34,6 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.(css|pcss)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../'
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: {
-                localIdentName: '[path]__[name]__[local]--[hash:base64:12]'
-              },
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
-      },
-      {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
       },
