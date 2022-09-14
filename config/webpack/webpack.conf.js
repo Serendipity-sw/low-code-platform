@@ -77,7 +77,6 @@ module.exports = {
   },
   plugins: [
     new WebpackBar( {} ),
-    new Webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin( {
       filename: './css/[name].bundle.[chunkhash].css'
     } ),
@@ -95,7 +94,7 @@ module.exports = {
   devServer: {
     host: '127.0.0.1',
     port: portFinderSync.getPort( 3000 ),
-    hot: false,
+    hot: true,
     open: true,
     client: {
       overlay: true,
