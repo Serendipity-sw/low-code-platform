@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import SelectMove from './components/select-move'
 import { controlsType } from '../../utils/controls-type'
 import { SetContainerSize } from '../../store/lowCodeDataReducers'
+import Ruler from '../../../../components/ruler'
 
 const ChartLine = React.lazy( () => import('./components/chart-line') )
 const ChartColumn = React.lazy( () => import('./components/chart-column') )
@@ -25,23 +26,23 @@ export default _ => {
     return list.map( item => {
       switch ( item.controls ) {
         case controlsType.div.name:
-          return <FontControls key={ item.id } { ...item }/>
+          return <FontControls key={ item.id } { ...item } />
         case controlsType.richEdit.name:
-          return <RichEditControls key={ item.id } { ...item }/>
+          return <RichEditControls key={ item.id } { ...item } />
         case controlsType.img.name:
           return <img key={ item.id } id={ item.id }
                       src={ item.src }
-                      style={ item.style } alt={ item.id }/>
+                      style={ item.style } alt={ item.id } />
         case controlsType.chartLine.name:
-          return <ChartLine key={ item.id } { ...item }/>
+          return <ChartLine key={ item.id } { ...item } />
         case controlsType.chartColumn.name:
-          return <ChartColumn key={ item.id } { ...item }/>
+          return <ChartColumn key={ item.id } { ...item } />
         case controlsType.chartBar.name:
-          return <ChartBar key={ item.id } { ...item }/>
+          return <ChartBar key={ item.id } { ...item } />
         case controlsType.chartPie.name:
-          return <ChartPie key={ item.id } { ...item }/>
+          return <ChartPie key={ item.id } { ...item } />
         case controlsType.map.name:
-          return <MapControls key={ item.id } { ...item }/>
+          return <MapControls key={ item.id } { ...item } />
         default:
           return
       }
@@ -54,14 +55,16 @@ export default _ => {
 
   return (
     <Suspense>
-      <div className={ style.init }>
-        <div ref={ container } className={ style.canvas }>
-          {
-            domRender( pageContentData )
-          }
+      <Ruler>
+        <div className={ style.init }>
+          <div ref={ container } className={ style.canvas }>
+            {
+              domRender( pageContentData )
+            }
+          </div>
+          <SelectMove container={ `.${ style.canvas }` } />
         </div>
-        <SelectMove container={ `.${ style.canvas }` }/>
-      </div>
+      </Ruler>
     </Suspense>
   )
 }
