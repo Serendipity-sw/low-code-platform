@@ -1,14 +1,32 @@
 .init {
     position: relative;
     flex: 1;
-}
-.horizontal {
-    position: absolute auto auto auto 30px;
-    width: calc(100% - 30px);
-    height: 30px;
-}
-.vertical {
-    position: absolute 30px auto auto auto;
-    width: 30px;
-    height: calc(100% - 30px);
+    --size: 30px;
+
+    .box {
+        position: absolute 0 auto auto 0;
+        z-index: 1;
+        background: #444;
+        @util center;
+        size:var(--size);
+    }
+
+    .horizontal {
+        position: absolute auto auto auto 30px;
+        width: calc(100% - var(--size));
+        height: var(--size);
+        z-index: 1;
+    }
+
+    .vertical {
+        position: absolute 30px auto auto auto;
+        width: var(--size);
+        height: calc(100% - var(--size));
+        z-index: 1;
+    }
+
+    .content {
+        size: calc(100% - var(--size));
+        margin: var(--size) auto auto var(--size);
+    }
 }
