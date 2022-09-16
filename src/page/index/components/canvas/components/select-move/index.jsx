@@ -134,7 +134,7 @@ export default props => {
         rotatable={ true }
         throttleRotate={ 0 }
         edgeDraggable
-        elementGuidelines={ pageContentData.map( item => document.getElementById( item.id ) ) }
+        elementGuidelines={ [ ...pageContentData.map( item => document.getElementById( item.id ) ), ...Array.from( document.querySelectorAll( '.scena-guides' ) ).map( item => [ ...Array.from( item.querySelectorAll( '.scena-vertical' ) ), ...Array.from( item.querySelectorAll( '.scena-horizontal' ) ) ] ).flat( 1 ) ] }
         rotationPosition={ 'top' }
         padding={ { 'left': 0, 'top': 0, 'right': 0, 'bottom': 0 } }
         onClickGroup={ e => {
