@@ -11,3 +11,4 @@ dist/*
 .cache
 *.log
 *.zip
+es-build-dir

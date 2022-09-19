@@ -5,7 +5,7 @@ import { cloneDeep, throttle } from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
 import { EditPageItemList } from '../../../../../../store/lowCodeDataReducers'
 
-const RichEdit = lazy( () => import('src/components/rich-edit') )
+const RichEdit = lazy( () => import('../../../../../../../../components/rich-edit') )
 
 export default props => {
 
