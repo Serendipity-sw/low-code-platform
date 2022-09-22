@@ -7,20 +7,20 @@ import ColorPicker from './components/color-picker'
 class ColorPickerDropDown extends React.Component {
   #ref = React.createRef()
 
-  shouldComponentUpdate( nextProps, nextState, nextContext ) {
-    return nextProps.disabled !== this.props.disabled
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return nextProps.disabled !== this.props.disabled || nextProps.colorType !== this.props.colorType
   }
 
   render() {
-    const { colorType, disabled, children } = this.props
+    const {colorType, disabled, children} = this.props
     return (
-      <Tippy content={ <ColorPicker colorType={ colorType }/> } ref={ this.#ref }
-             interactive={ true }
+      <Tippy content={<ColorPicker colorType={colorType}/>} ref={this.#ref}
+             interactive={true}
              theme="light"
-             arrow={ false }
-             disabled={ disabled ?? false }
-             className={ `animate__animated animate__rubberBand ${ style.tranBg }` }>
-        { children }
+             arrow={false}
+             disabled={disabled ?? false}
+             className={`animate__animated animate__rubberBand ${style.tranBg}`}>
+        {children}
       </Tippy>
     )
   }
