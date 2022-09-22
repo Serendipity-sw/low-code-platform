@@ -1,10 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 const path = require('path')
 const WebpackBar = require('webpackbar')
-const TerserPlugin = require('terser-webpack-plugin')
 const portFinderSync = require('portfinder-sync')
 
 module.exports = {
