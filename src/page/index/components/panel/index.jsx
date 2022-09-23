@@ -8,6 +8,7 @@ import {controlsType} from '../../utils/controls-type'
 const FontPanel = lazy(() => import('./components/font-panel'))
 const RichEditPanel = lazy(() => import('./components/rich-edit-panel'))
 const ImgPanel = lazy(() => import('./components/img-panel'))
+const MapPanel = lazy(() => import('./components/map-panel'))
 
 export default _ => {
 
@@ -38,6 +39,8 @@ export default _ => {
           return <RichEditPanel selectTab={selectTab} className={style.none}/>
         case controlsType.img.name:
           return <ImgPanel selectTab={selectTab} className={style.none}/>
+        case controlsType.map.name:
+          return <MapPanel selectTab={selectTab} className={style.none}/>
         default:
           return <></>
       }
