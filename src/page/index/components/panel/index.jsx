@@ -41,6 +41,8 @@ export default _ => {
           return <ImgPanel selectTab={selectTab} className={style.none}/>
         case controlsType.map.name:
           return <MapPanel selectTab={selectTab} className={style.none}/>
+        case controlsType.chartLine.name:
+          return <MapPanel selectTab={selectTab} className={style.none}/>
         default:
           return <></>
       }
