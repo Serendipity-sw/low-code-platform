@@ -1,7 +1,12 @@
 module.exports = {
   plugins: [
     require('postcss-nested'),
-    require('postcss-import'),
+    require('postcss-import')({
+      resolve: require('postcss-import-alias-resolver')({
+        alias: {
+        }
+      })
+    }),
     require('postcss-atroot'),
     require('postcss-property-lookup'),
     require('autoprefixer'),
@@ -11,8 +16,7 @@ module.exports = {
     }),
     require('postcss-advanced-variables'),
     require('postcss-autoreset')({
-      reset: {
-      },
+      reset: {},
     }),
     require('postcss-initial'),
     require('postcss-preset-env'),
@@ -22,4 +26,4 @@ module.exports = {
     require('postcss-short'),
     require('postcss-assets')
   ]
-};
+}
