@@ -7,6 +7,7 @@ import Panel from './components/panel'
 import LayerArea from './components/layer-area'
 
 export default _ => {
+
   return (
     <div className={style.init}>
       <Header/>
