@@ -99,7 +99,7 @@
     "antd": "^5.1.1",
     "axios": "^1.2.2",
     "editorjs-alert": "^1.0.3",
-    "editorjs-drag-drop": "^1.1.12",
+    "editorjs-drag-drop": "^1.1.5",
     "editorjs-header-with-alignment": "^1.0.1",
     "editorjs-style": "^3.0.3",
     "editorjs-toggle-block": "^0.3.7",
