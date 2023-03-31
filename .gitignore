@@ -12,3 +12,4 @@ dist/*
 *.log
 *.zip
 es-build-dir
+backup
