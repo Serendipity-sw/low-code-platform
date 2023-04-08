@@ -9,6 +9,7 @@ const FontPanel = lazy(() => import('./components/font-panel'))
 const RichEditPanel = lazy(() => import('./components/rich-edit-panel'))
 const ImgPanel = lazy(() => import('./components/img-panel'))
 const MapPanel = lazy(() => import('./components/map-panel'))
+const ChartLinePanel = lazy(() => import('./components/chart-line-panel'))
 
 export default _ => {
 
@@ -42,7 +43,7 @@ export default _ => {
         case controlsType.map.name:
           return <MapPanel selectTab={selectTab} className={style.none}/>
         case controlsType.chartLine.name:
-          return <MapPanel selectTab={selectTab} className={style.none}/>
+          return <ChartLinePanel selectTab={selectTab} className={style.none}/>
         default:
           return <></>
       }
