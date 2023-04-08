@@ -71,20 +71,6 @@ export const menuTypeMap = {
       value: 3
     }
   },
-  [controlsType.chartColumn.name]: {
-    style: {
-      label: '样式',
-      value: 1
-    },
-    data: {
-      label: '数据',
-      value: 2
-    },
-    event: {
-      label: '事件',
-      value: 3
-    }
-  },
   [controlsType.chartBar.name]: {
     style: {
       label: '样式',

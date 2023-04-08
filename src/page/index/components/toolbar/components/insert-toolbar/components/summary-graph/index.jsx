@@ -26,7 +26,7 @@ export default _ => {
     {
       image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*377_TZgcotkAAAAAAAAAAABkARQnAQ',
       name: '柱状图',
-      selected: controlsType.chartColumn.name,
+      selected: controlsType.chartBar.name,
       onClick: handleControlsClick
     },
     {
