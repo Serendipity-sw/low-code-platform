@@ -1,6 +1,7 @@
 const {merge} = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.conf')
 const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const portFinderSync = require('portfinder-sync')
 const {WebpackOpenBrowser} = require('webpack-open-browser')
 
@@ -14,6 +15,12 @@ let config = merge(baseWebpackConfig, {
         test: /\.(css|pcss)$/,
         exclude: /node_modules/,
         use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -32,6 +39,9 @@ let config = merge(baseWebpackConfig, {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: './css/[name].bundle.[chunkhash].css'
+    }),
     new WebpackOpenBrowser({url: `http://localhost:${port}`}),
     new webpack.DefinePlugin({
       Gloomy_env: JSON.stringify('development'),
