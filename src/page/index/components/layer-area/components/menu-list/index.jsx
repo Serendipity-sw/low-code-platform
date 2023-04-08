@@ -65,7 +65,7 @@ export default props => {
                       onClose={ () => toggleMenu( false ) }>
         <MenuItem onClick={ toggleDialog }>修改名称</MenuItem>
       </ControlledMenu>
-      <Modal className={ style.editDialog } title="图层名称" visible={ editDialogVisible } onOk={ handleSaveLayerTitle }
+      <Modal className={ style.editDialog } title="图层名称" open={ editDialogVisible } onOk={ handleSaveLayerTitle }
              onCancel={ toggleDialog }>
         <Input placeholder="图层名称" value={ selectNode.title }
                onChange={ ( { target: { value } } ) => setSelectNode( { ...selectNode, title: value } ) }/>

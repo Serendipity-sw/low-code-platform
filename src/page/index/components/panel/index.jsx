@@ -60,7 +60,7 @@ export default _ => {
       title="操作面板"
       placement="right"
       closable={false}
-      visible={selectControls.length === 1}
+      open={selectControls.length === 1}
       mask={false}
       getContainer={false}
       className={style.init}
