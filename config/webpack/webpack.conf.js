@@ -1,8 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const WebpackBar = require('webpackbar')
-const portFinderSync = require('portfinder-sync')
 
 module.exports = {
   entry: './src/app.jsx',
@@ -67,24 +65,11 @@ module.exports = {
       basic: false,
       profile: false
     }),
-    new MiniCssExtractPlugin({
-      filename: './css/[name].bundle.[chunkhash].css'
-    }),
     new HtmlWebpackPlugin({
       title: '低代码平台',
       template: path.resolve(__dirname, '../../template.html'),
       filename: 'index.html',
       inject: 'body'
     })
-  ],
-  devServer: {
-    host: '127.0.0.1',
-    port: portFinderSync.getPort(3000),
-    hot: true,
-    open: true,
-    client: {
-      overlay: true,
-      progress: true
-    }
-  }
+  ]
 }

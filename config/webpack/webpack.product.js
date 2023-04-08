@@ -1,15 +1,15 @@
-const {merge} = require('webpack-merge');
+const {merge} = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.conf')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' )
-const DashboardPlugin = require("webpack-dashboard/plugin");
-const CompressionWebpackPlugin = require("compression-webpack-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const ParallelUglifyPlugin = require("webpack-parallel-uglify-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 
 let config = merge(baseWebpackConfig, {
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.(css|pcss)$/,
         exclude: /node_modules/,
@@ -38,7 +38,7 @@ let config = merge(baseWebpackConfig, {
     ]
   },
   performance: {
-    hints: false,
+    hints: false
   },
   optimization: {
     usedExports: true,
@@ -65,15 +65,18 @@ let config = merge(baseWebpackConfig, {
   },
   plugins: [
     new DashboardPlugin(),
+    new MiniCssExtractPlugin({
+      filename: './css/[name].bundle.[chunkhash].css'
+    }),
     new CompressionWebpackPlugin({
       algorithm: 'gzip'
     }),
     new webpack.DefinePlugin({
       Gloomy_env: JSON.stringify('production'),
-      Enable_Mock: JSON.stringify( true ),
+      Enable_Mock: JSON.stringify(true),
       Map_Key: JSON.stringify('b6f3a086b83159ee8f080b361d1384d2')
     })
   ]
 })
 
-module.exports = config;
+module.exports = config
