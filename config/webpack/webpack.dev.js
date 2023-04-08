@@ -8,7 +8,7 @@ const {WebpackOpenBrowser} = require('webpack-open-browser')
 const port = portFinderSync.getPort(3000)
 
 let config = merge(baseWebpackConfig, {
-  // devtool: 'eval-cheap-module-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
