@@ -30,12 +30,6 @@ export default _ => {
       onClick: handleControlsClick
     },
     {
-      image: 'https://gw.alipayobjects.com/mdn/rms_f5c722/afts/img/A*62ClRKVbiIYAAAAAAAAAAABkARQnAQ',
-      name: '条形图',
-      selected: controlsType.chartBar.name,
-      onClick: handleControlsClick
-    },
-    {
       image: 'https://gw.alipayobjects.com/mdn/rms_2274c3/afts/img/A*kiaxRq6B7lsAAAAAAAAAAABkARQnAQ',
       name: '饼图',
       selected: controlsType.chartPie.name,

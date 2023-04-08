@@ -1,7 +1,7 @@
 import React from 'react'
-import { Chart } from '@antv/g2'
+import * as echarts from 'echarts'
 
-class ChartLine extends React.Component {
+class ChartColumn extends React.Component {
 
   #chartObj
 
@@ -10,7 +10,7 @@ class ChartLine extends React.Component {
   }
 
   componentWillUnmount() {
-    this.#chartObj?.destroy?.()
+    this.#chartObj?.dispose?.()
   }
 
   shouldComponentUpdate( nextProps, nextState, nextContext ) {
@@ -21,19 +21,27 @@ class ChartLine extends React.Component {
   }
 
   #controlsResizeChange = _ => {
-    this.#chartObj?.forceFit?.()
+    this.#chartObj?.resize?.()
   }
 
   #chartInit = props => {
     const { id } = props
-    this.#chartObj = new Chart( {
-      container: id,
-      autoFit: true,
-      syncViewPadding: true
-    } )
-    this.#chartObj.data( require( './data/data-init.json' ) )
-    this.#chartObj.line().position( 'Date*Close' )
-    this.#chartObj.render()
+    this.#chartObj = echarts.init(document.getElementById(id))
+    this.#chartObj.setOption({
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: 'bar'
+        }
+      ]
+    })
   }
 
   render() {
@@ -44,4 +52,4 @@ class ChartLine extends React.Component {
   }
 }
 
-export default ChartLine
+export default ChartColumn
